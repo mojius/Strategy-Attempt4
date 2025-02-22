@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://1s323cu6u7ly"]
+[gd_scene load_steps=43 format=4 uid="uid://1s323cu6u7ly"]
 
 [ext_resource type="Script" uid="uid://byjmtde7lfpi3" path="res://Logic/map_root.gd" id="1_and8k"]
 [ext_resource type="TileSet" uid="uid://cipyw8f5aojg" path="res://Maps/map_tiles.tres" id="1_t5obx"]
@@ -176,40 +176,6 @@ strn = 14
 def = 3
 metadata/_custom_type_script = ExtResource("8_xt5ad")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l77do"]
-resource_local_to_scene = true
-shader = ExtResource("10_1mjim")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
-
-[sub_resource type="Resource" id="Resource_vrbd7"]
-resource_local_to_scene = true
-script = ExtResource("8_xt5ad")
-move_range = 5
-attack_range = 1
-max_hp = 20
-hp = 20
-strn = 14
-def = 3
-metadata/_custom_type_script = ExtResource("8_xt5ad")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp5a2"]
-resource_local_to_scene = true
-shader = ExtResource("10_1mjim")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
-
-[sub_resource type="Resource" id="Resource_jy3f6"]
-resource_local_to_scene = true
-script = ExtResource("8_xt5ad")
-move_range = 5
-attack_range = 1
-max_hp = 20
-hp = 20
-strn = 14
-def = 3
-metadata/_custom_type_script = ExtResource("8_xt5ad")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85gpj"]
 resource_local_to_scene = true
 shader = ExtResource("10_1mjim")
@@ -251,7 +217,6 @@ animations = [{
 
 [node name="MapRoot" type="Node2D"]
 script = ExtResource("1_and8k")
-first_turn = "Enemy"
 
 [node name="TileManager" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
@@ -299,25 +264,9 @@ frame_progress = 0.0
 behavior_script = ExtResource("7_net0g")
 stats = SubResource("Resource_5mg0h")
 
-[node name="Knight2" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
-material = SubResource("ShaderMaterial_l77do")
-position = Vector2(240, 160)
-sprite_frames = SubResource("SpriteFrames_4xdir")
-frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
-stats = SubResource("Resource_vrbd7")
-
-[node name="Knight3" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
-material = SubResource("ShaderMaterial_qp5a2")
-position = Vector2(240, 128)
-sprite_frames = SubResource("SpriteFrames_4xdir")
-frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
-stats = SubResource("Resource_jy3f6")
-
 [node name="Knight4" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
 material = SubResource("ShaderMaterial_85gpj")
-position = Vector2(224, 96)
+position = Vector2(192, 112)
 sprite_frames = SubResource("SpriteFrames_4xdir")
 frame_progress = 0.0
 behavior_script = ExtResource("7_net0g")

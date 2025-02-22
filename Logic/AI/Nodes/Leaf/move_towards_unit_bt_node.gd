@@ -7,6 +7,7 @@ func run() -> bool:
     var target: Unit = blackboard["Target"]
 
     var path = tm.get_path_towards_destination(tm.local_to_map(unit.position), unit.stats.move_range, tm.local_to_map(target.position))
+    
 
     unit.set_path(path, tm)
     await unit.finished_walking

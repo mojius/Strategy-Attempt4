@@ -105,6 +105,11 @@ func astar(start: Vector2i, area: Array, goal := Vector2i(-1,-1)):
 		path.append(current)
 		current = came_from[current]
 	
+	for i in range(0, path.size()):
+		var cell = path[i]
+		if cell == path.back() and get_unit_at_cell(cell):
+			path.erase(cell)
+	
 	path.append(start)
 	path.reverse()
 
@@ -135,7 +140,7 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 
 	var target = get_unit_at_cell(coords)
 	if target:
-		if (faction == 1 and target.faction == 1) or $Units.opposes_faction(faction, target.faction):
+		if $Units.opposes_faction(faction, target.faction):
 			return true
 
 
