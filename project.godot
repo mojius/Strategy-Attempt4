@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="strategy"
-run/main_scene="uid://b0y04gufotk20"
+run/main_scene="uid://1s323cu6u7ly"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false

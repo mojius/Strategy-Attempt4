@@ -135,7 +135,7 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 
 	var target = get_unit_at_cell(coords)
 	if target:
-		if $Units.opposes_faction(faction, target.faction):
+		if (faction == 1 and target.faction == 1) or $Units.opposes_faction(faction, target.faction):
 			return true
 
 

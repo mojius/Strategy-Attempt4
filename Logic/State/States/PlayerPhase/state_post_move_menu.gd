@@ -17,7 +17,9 @@ func state_enter() -> void:
 	unit = shared_dict.get("Unit")
 	tm = shared_dict.get("TileManager")
 	
-	if tm.get_attackable_targets(unit).size() == 0:
+	var targets =  tm.get_attackable_targets(unit)
+
+	if targets.size() == 0:
 		$PostMoveMenu/VBoxContainer.find_child("Attack").hide()
 	else:
 		$PostMoveMenu/VBoxContainer.find_child("Attack").show()
