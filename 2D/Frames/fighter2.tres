@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://chvgw164chgaa"]
+
+[ext_resource type="Texture2D" uid="uid://dldo6sbyxh3a2" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/SpearFighter/SpearFighter_LongHair_Red1.png" id="1_7g274"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxtti"]
+atlas = ExtResource("1_7g274")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuv7f"]
+atlas = ExtResource("1_7g274")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxxhw"]
+atlas = ExtResource("1_7g274")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47rmo"]
+atlas = ExtResource("1_7g274")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxtti")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_nuv7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxhw")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_47rmo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

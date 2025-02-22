@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bflrpddl775f"]
+
+[ext_resource type="Texture2D" uid="uid://dxuh6llsnk663" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Archer/Archer_Red2.png" id="1_0h6l0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be18i"]
+atlas = ExtResource("1_0h6l0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jvad"]
+atlas = ExtResource("1_0h6l0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxxw0"]
+atlas = ExtResource("1_0h6l0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_job3c"]
+atlas = ExtResource("1_0h6l0")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be18i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jvad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxxw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_job3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

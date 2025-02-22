@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvc2rtqpj1un3"]
+
+[ext_resource type="Texture2D" uid="uid://c5amos5u4jgrw" path="res://2D/Sprite Sheets/SwordFighter/SwordFighter_LongHair_Blue1.png" id="1_owtlo"]
+[ext_resource type="Script" uid="uid://dbjl6jvmjh1vb" path="res://knight.gd" id="2_nsuie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d02j6"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fp5p"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jl1s"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chhvp"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipopj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d02j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fp5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jl1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chhvp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Knight" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ipopj")
+autoplay = "default"
+frame_progress = 0.569261
+offset = Vector2(8, 8)
+script = ExtResource("2_nsuie")
+path = [Vector2i(0, 0)]

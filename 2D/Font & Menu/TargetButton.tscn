@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbrhlb1wiea6d"]
+
+[ext_resource type="Script" uid="uid://bkteivkt6yrm0" path="res://2D/Font & Menu/target_button.gd" id="1_7djev"]
+
+[node name="TargetButton" type="Button"]
+script = ExtResource("1_7djev")

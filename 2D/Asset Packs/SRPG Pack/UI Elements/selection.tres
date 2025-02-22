@@ -1,0 +1,40 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://up3bron3jngb"]
+
+[ext_resource type="Texture2D" uid="uid://07pfqd2lxv8n" path="res://2D/Asset Packs/SRPG Pack/UI Elements/RangerFinderTile_Red_50%Opacity.png" id="1_1jvds"]
+[ext_resource type="Texture2D" uid="uid://dkdnvkr41fait" path="res://2D/Asset Packs/SRPG Pack/UI Elements/RangerFinderTile_Blue_50%Opacity.png" id="2_tjxh6"]
+[ext_resource type="Texture2D" uid="uid://clf8310aqsyiv" path="res://2D/Asset Packs/SRPG Pack/UI Elements/RangerFinderTile_Green_50%Opacity.png" id="3_eg24x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_euqka"]
+resource_name = "red"
+texture = ExtResource("1_1jvds")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g0l5"]
+resource_name = "blue"
+texture = ExtResource("2_tjxh6")
+0:0/animation_columns = 14
+0:0/animation_speed = 8.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eip4s"]
+resource_name = "green"
+texture = ExtResource("3_eg24x")
+
+[resource]
+sources/6 = SubResource("TileSetAtlasSource_5g0l5")
+sources/8 = SubResource("TileSetAtlasSource_eip4s")
+sources/12 = SubResource("TileSetAtlasSource_euqka")

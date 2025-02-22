@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://d22anyecuw6h2"]
+
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Menu/default-ui.tres" id="1_woc08"]
+[ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="2_4r7t1"]
+[ext_resource type="PackedScene" uid="uid://dum10lpmrfhg4" path="res://2D/Font & Menu/MenuCursor.tscn" id="3_gj5dc"]
+
+[node name="PanelContainer" type="PanelContainer"]
+z_index = 80
+z_as_relative = false
+texture_filter = 1
+offset_right = 16.0
+offset_bottom = 16.0
+theme = ExtResource("1_woc08")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_woc08")
+texture = ExtResource("2_4r7t1")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_woc08")
+theme_override_constants/separation = -2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuCursor" parent="." node_paths=PackedStringArray("v_box") instance=ExtResource("3_gj5dc")]
+v_box = NodePath("../VBoxContainer")

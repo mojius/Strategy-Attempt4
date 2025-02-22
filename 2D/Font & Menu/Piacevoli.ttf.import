@@ -1,0 +1,40 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://uu4ns73p1ne1"
+path="res://.godot/imported/Piacevoli.ttf-a73ae1058d6fd3c0eb82a1d5a4c75486.fontdata"
+
+[deps]
+
+source_file="res://2D/Font & Menu/Piacevoli.ttf"
+dest_files=["res://.godot/imported/Piacevoli.ttf-a73ae1058d6fd3c0eb82a1d5a4c75486.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=true
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 8)
+}]
+language_support={}
+script_support={}
+opentype_features={}

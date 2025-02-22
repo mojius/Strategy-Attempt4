@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvc2rtqpj1un3"]
+
+[ext_resource type="Shader" uid="uid://ctecbhdlt60t1" path="res://Logic/flash.gdshader" id="1_i5t87"]
+[ext_resource type="Texture2D" uid="uid://c5amos5u4jgrw" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/SwordFighter/SwordFighter_LongHair_Blue1.png" id="1_owtlo"]
+[ext_resource type="Script" uid="uid://dbjl6jvmjh1vb" path="res://Logic/unit.gd" id="2_nsuie"]
+[ext_resource type="Script" uid="uid://dakphmef0bo0w" path="res://Logic/StatsResource.gd" id="3_00ukd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3cp"]
+shader = ExtResource("1_i5t87")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d02j6"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fp5p"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jl1s"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chhvp"]
+atlas = ExtResource("1_owtlo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipopj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d02j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fp5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jl1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chhvp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_00ukd"]
+resource_local_to_scene = true
+script = ExtResource("3_00ukd")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 10
+def = 6
+metadata/_custom_type_script = ExtResource("3_00ukd")
+
+[sub_resource type="Animation" id="Animation_00ukd"]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5t87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rd3cp"]
+resource_name = "exhaust"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.16, 0.16, 0.16, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5t87"]
+_data = {
+&"RESET": SubResource("Animation_i5t87"),
+&"die": SubResource("Animation_00ukd"),
+&"exhaust": SubResource("Animation_rd3cp")
+}
+
+[node name="Knight" type="AnimatedSprite2D"]
+z_index = 8
+z_as_relative = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_rd3cp")
+sprite_frames = SubResource("SpriteFrames_ipopj")
+autoplay = "default"
+frame_progress = 0.569261
+offset = Vector2(8, 8)
+script = ExtResource("2_nsuie")
+stats = SubResource("Resource_00ukd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i5t87")
+}

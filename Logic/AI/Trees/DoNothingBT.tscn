@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://q1ohe2n4x8qs"]
+
+[ext_resource type="Script" uid="uid://besdg8q06chtu" path="res://Logic/AI/Trees/behavior_tree.gd" id="1_wl44i"]
+[ext_resource type="Script" uid="uid://bysxyp1s0oh23" path="res://Logic/AI/Nodes/Leaf/exhaust_unit_bt_node.gd" id="2_wl44i"]
+
+[node name="DoNothingBT" type="Node"]
+script = ExtResource("1_wl44i")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="."]
+script = ExtResource("2_wl44i")
+metadata/_custom_type_script = ExtResource("2_wl44i")

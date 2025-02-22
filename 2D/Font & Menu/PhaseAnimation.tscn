@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cup5t6yk2lxdo"]
+
+[ext_resource type="Texture2D" uid="uid://dwfd087qieovq" path="res://2D/Original/ally-phase.png" id="1_2av48"]
+[ext_resource type="Script" uid="uid://desn8y2t2jfe5" path="res://2D/Font & Menu/phase_animation.gd" id="1_a6ysy"]
+[ext_resource type="Texture2D" uid="uid://b4lcke0c1nmha" path="res://2D/Original/player-phase.png" id="2_hltrq"]
+[ext_resource type="Texture2D" uid="uid://c0qq655h82um4" path="res://2D/Original/enemy-phase.png" id="4_c6kn6"]
+
+[sub_resource type="Animation" id="Animation_2av48"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(848, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_a6ysy"]
+resource_name = "woosh"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(585.641, -0.25, 0, 0.25, 0, 194.278, -0.7, 0, 0.7, 26.197, -300, -0.25, 0, 0.25, 0, 800, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.933333, 1.96667, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2av48"]
+_data = {
+&"RESET": SubResource("Animation_2av48"),
+&"woosh": SubResource("Animation_a6ysy")
+}
+
+[node name="PhaseAnimation" type="Node2D"]
+script = ExtResource("1_a6ysy")
+pictures = Array[Texture2D]([ExtResource("2_hltrq"), ExtResource("4_c6kn6"), ExtResource("1_2av48")])
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 100
+z_as_relative = false
+texture_filter = 1
+position = Vector2(848, 144.6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_2av48")
+}

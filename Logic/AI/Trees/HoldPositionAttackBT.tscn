@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://sduivhdlfx32"]
+
+[ext_resource type="Script" uid="uid://besdg8q06chtu" path="res://Logic/AI/Trees/behavior_tree.gd" id="1_0rmrg"]
+[ext_resource type="Script" uid="uid://bjofsdfwr5luq" path="res://Logic/AI/Nodes/sequence_bt_node.gd" id="2_7l6bn"]
+[ext_resource type="Script" uid="uid://bvy1fej6otbb0" path="res://Logic/AI/Nodes/selector_bt_node.gd" id="2_kitk8"]
+[ext_resource type="Script" uid="uid://cg4iyixcon2d2" path="res://Logic/AI/Nodes/Leaf/unit_in_attack_range_bt_node.gd" id="2_t43wc"]
+[ext_resource type="Script" uid="uid://di6md26njh1ba" path="res://Logic/AI/Nodes/Leaf/attack_unit_bt_node.gd" id="4_l3hed"]
+[ext_resource type="Script" uid="uid://bysxyp1s0oh23" path="res://Logic/AI/Nodes/Leaf/exhaust_unit_bt_node.gd" id="5_l3hed"]
+
+[node name="HoldPositionAttackBT" type="Node"]
+script = ExtResource("1_0rmrg")
+
+[node name="AttackOrWaitSelector" type="Node" parent="."]
+script = ExtResource("2_kitk8")
+metadata/_custom_type_script = ExtResource("2_kitk8")
+
+[node name="TryAttackInLocalRangeSequence" type="Node" parent="AttackOrWaitSelector"]
+script = ExtResource("2_7l6bn")
+metadata/_custom_type_script = ExtResource("2_7l6bn")
+
+[node name="UnitInAttackRangeBTNode" type="Node" parent="AttackOrWaitSelector/TryAttackInLocalRangeSequence"]
+script = ExtResource("2_t43wc")
+metadata/_custom_type_script = ExtResource("2_t43wc")
+
+[node name="AttackUnitBTNode" type="Node" parent="AttackOrWaitSelector/TryAttackInLocalRangeSequence"]
+script = ExtResource("4_l3hed")
+metadata/_custom_type_script = ExtResource("4_l3hed")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="AttackOrWaitSelector/TryAttackInLocalRangeSequence"]
+script = ExtResource("5_l3hed")
+metadata/_custom_type_script = ExtResource("5_l3hed")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="AttackOrWaitSelector"]
+script = ExtResource("5_l3hed")
+metadata/_custom_type_script = ExtResource("5_l3hed")

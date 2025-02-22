@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c4wl2ksm8p3uf"]
+
+[ext_resource type="Texture2D" uid="uid://of7wnbhmbwsc" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/AxeFighter/AxeFighter_LongHair_Red3.png" id="1_oxgwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v4s2"]
+atlas = ExtResource("1_oxgwk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsfvp"]
+atlas = ExtResource("1_oxgwk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a71e"]
+atlas = ExtResource("1_oxgwk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dyxw"]
+atlas = ExtResource("1_oxgwk")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v4s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsfvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a71e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dyxw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

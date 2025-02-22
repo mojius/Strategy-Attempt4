@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7wc8oftwkf82"]
+
+[ext_resource type="TileSet" uid="uid://ds2iitcxsxw23" path="res://2D/Asset Packs/SRPG Pack/UI Elements/arrows.tres" id="1_3w040"]
+[ext_resource type="Script" uid="uid://crdutbfjuqccr" path="res://Logic/path_arrow.gd" id="1_u7ke6"]
+
+[node name="PathArrow" type="TileMapLayer"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+tile_set = ExtResource("1_3w040")
+script = ExtResource("1_u7ke6")

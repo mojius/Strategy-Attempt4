@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmvcoekka4lj7"]
+
+[ext_resource type="Script" uid="uid://besdg8q06chtu" path="res://Logic/AI/Trees/behavior_tree.gd" id="1_4wro5"]
+[ext_resource type="Script" uid="uid://bmjsx2bp1hjev" path="res://Logic/AI/Nodes/Leaf/find_enemy_unit_bt_node.gd" id="2_kdlpl"]
+[ext_resource type="Script" uid="uid://bjofsdfwr5luq" path="res://Logic/AI/Nodes/sequence_bt_node.gd" id="3_kdlpl"]
+[ext_resource type="Script" uid="uid://bvy1fej6otbb0" path="res://Logic/AI/Nodes/selector_bt_node.gd" id="4_8k327"]
+[ext_resource type="Script" uid="uid://cg4iyixcon2d2" path="res://Logic/AI/Nodes/Leaf/unit_in_attack_range_bt_node.gd" id="5_4wro5"]
+[ext_resource type="Script" uid="uid://cfh8v2vxcp7ov" path="res://Logic/AI/Nodes/Leaf/unit_in_attack_move_range_bt_node.gd" id="5_ubmkn"]
+[ext_resource type="Script" uid="uid://ct3rhdffovj6m" path="res://Logic/AI/Nodes/Leaf/move_within_attack_range_bt_node.gd" id="6_q7fls"]
+[ext_resource type="Script" uid="uid://di6md26njh1ba" path="res://Logic/AI/Nodes/Leaf/attack_unit_bt_node.gd" id="7_xwg4d"]
+[ext_resource type="Script" uid="uid://bysxyp1s0oh23" path="res://Logic/AI/Nodes/Leaf/exhaust_unit_bt_node.gd" id="8_txt02"]
+[ext_resource type="Script" uid="uid://gaqupp62sadr" path="res://Logic/AI/Nodes/Leaf/move_towards_unit_bt_node.gd" id="8_urtwe"]
+
+[sub_resource type="Resource" id="Resource_txt02"]
+metadata/__load_path__ = "res://Logic/AI/Trees/charge_unit_bt.gd"
+
+[node name="ChargeUnitBT" type="Node"]
+script = ExtResource("1_4wro5")
+metadata/_custom_type_script = SubResource("Resource_txt02")
+
+[node name="LocalOrAfarEnemySelector" type="Node" parent="."]
+script = ExtResource("4_8k327")
+metadata/_custom_type_script = ExtResource("4_8k327")
+
+[node name="TryJustAttackSequence" type="Node" parent="LocalOrAfarEnemySelector"]
+script = ExtResource("3_kdlpl")
+metadata/_custom_type_script = ExtResource("3_kdlpl")
+
+[node name="UnitInAttackRangeBTNode" type="Node" parent="LocalOrAfarEnemySelector/TryJustAttackSequence"]
+script = ExtResource("5_4wro5")
+metadata/_custom_type_script = ExtResource("5_4wro5")
+
+[node name="AttackUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/TryJustAttackSequence"]
+script = ExtResource("7_xwg4d")
+metadata/_custom_type_script = ExtResource("7_xwg4d")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/TryJustAttackSequence"]
+script = ExtResource("8_txt02")
+metadata/_custom_type_script = ExtResource("8_txt02")
+
+[node name="NavigateAndOrAttackSequence" type="Node" parent="LocalOrAfarEnemySelector"]
+script = ExtResource("3_kdlpl")
+metadata/_custom_type_script = ExtResource("3_kdlpl")
+
+[node name="FindEnemyUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence"]
+script = ExtResource("2_kdlpl")
+metadata/_custom_type_script = ExtResource("2_kdlpl")
+
+[node name="SelectorBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence"]
+script = ExtResource("4_8k327")
+metadata/_custom_type_script = ExtResource("4_8k327")
+
+[node name="MoveAndAttackSequence" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode"]
+script = ExtResource("3_kdlpl")
+metadata/_custom_type_script = ExtResource("3_kdlpl")
+
+[node name="UnitInAttackMoveRangeBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveAndAttackSequence"]
+script = ExtResource("5_ubmkn")
+metadata/_custom_type_script = ExtResource("5_ubmkn")
+
+[node name="MoveWithinAttackRangeBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveAndAttackSequence"]
+script = ExtResource("6_q7fls")
+metadata/_custom_type_script = ExtResource("6_q7fls")
+
+[node name="AttackUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveAndAttackSequence"]
+script = ExtResource("7_xwg4d")
+metadata/_custom_type_script = ExtResource("7_xwg4d")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveAndAttackSequence"]
+script = ExtResource("8_txt02")
+metadata/_custom_type_script = ExtResource("8_txt02")
+
+[node name="MoveTowardsSequence" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode"]
+script = ExtResource("3_kdlpl")
+metadata/_custom_type_script = ExtResource("3_kdlpl")
+
+[node name="MoveTowardsUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveTowardsSequence"]
+script = ExtResource("8_urtwe")
+metadata/_custom_type_script = ExtResource("8_urtwe")
+
+[node name="ExhaustUnitBTNode" type="Node" parent="LocalOrAfarEnemySelector/NavigateAndOrAttackSequence/SelectorBTNode/MoveTowardsSequence"]
+script = ExtResource("8_txt02")
+metadata/_custom_type_script = ExtResource("8_txt02")

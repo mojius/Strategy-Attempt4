@@ -1,0 +1,338 @@
+[gd_scene load_steps=47 format=4 uid="uid://1s323cu6u7ly"]
+
+[ext_resource type="Script" uid="uid://byjmtde7lfpi3" path="res://Logic/map_root.gd" id="1_and8k"]
+[ext_resource type="TileSet" uid="uid://cipyw8f5aojg" path="res://Maps/map_tiles.tres" id="1_t5obx"]
+[ext_resource type="Script" uid="uid://dnk73yhj6ktoe" path="res://Logic/tile_manager.gd" id="2_lblf8"]
+[ext_resource type="TileSet" uid="uid://up3bron3jngb" path="res://2D/Asset Packs/SRPG Pack/UI Elements/selection.tres" id="3_1xuav"]
+[ext_resource type="Script" uid="uid://c8fmdno3mvj5q" path="res://Logic/units.gd" id="4_ht5ik"]
+[ext_resource type="PackedScene" uid="uid://dvc2rtqpj1un3" path="res://Logic/unit.tscn" id="5_and8k"]
+[ext_resource type="PackedScene" uid="uid://dmvcoekka4lj7" path="res://Logic/AI/Trees/ChargeUnitBT.tscn" id="7_net0g"]
+[ext_resource type="Texture2D" uid="uid://d3qsaeonooppt" path="res://2D/Original/princess/princess-idle.png" id="8_net0g"]
+[ext_resource type="Script" uid="uid://dakphmef0bo0w" path="res://Logic/StatsResource.gd" id="8_xt5ad"]
+[ext_resource type="PackedScene" uid="uid://cp0vujptc8upp" path="res://Logic/State/States/PlayerPhase/PlayerPhaseStateMachine.tscn" id="9_5mg0h"]
+[ext_resource type="Texture2D" uid="uid://bwlfaux71o3k8" path="res://2D/Asset Packs/SRPG Pack/UI Elements/SelectionCursor.png" id="9_ht5ik"]
+[ext_resource type="Shader" uid="uid://ctecbhdlt60t1" path="res://Logic/highlight.gdshader" id="10_1mjim"]
+[ext_resource type="Script" uid="uid://d4brb7ar0x8bv" path="res://Logic/cursor.gd" id="10_and8k"]
+[ext_resource type="Texture2D" uid="uid://ckxa7r6jcndy3" path="res://2D/Original/wiz/wiz-idle.png" id="10_net0g"]
+[ext_resource type="Script" uid="uid://cr1q45swwrhjd" path="res://Logic/AI/Nodes/enemy_bt_tester.gd" id="11_1mjim"]
+[ext_resource type="Texture2D" uid="uid://dcxe34sq506o6" path="res://2D/Original/knight/knight-idle.png" id="11_net0g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_net0g"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt5ad"]
+atlas = ExtResource("8_net0g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mg0h"]
+atlas = ExtResource("8_net0g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbd7"]
+atlas = ExtResource("8_net0g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3f6"]
+atlas = ExtResource("8_net0g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxruc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt5ad")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_5mg0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbd7")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_jy3f6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_xt5ad"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 7
+def = 6
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_and8k"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxruc"]
+atlas = ExtResource("10_net0g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyi25"]
+atlas = ExtResource("10_net0g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmjk4"]
+atlas = ExtResource("10_net0g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85opt"]
+atlas = ExtResource("10_net0g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mjim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxruc")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_dyi25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmjk4")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_85opt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_net0g"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 2
+max_hp = 20
+hp = 20
+strn = 14
+def = 3
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0e5p"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37e8p"]
+atlas = ExtResource("11_net0g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyuud"]
+atlas = ExtResource("11_net0g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg0tv"]
+atlas = ExtResource("11_net0g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snc1y"]
+atlas = ExtResource("11_net0g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xdir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37e8p")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_nyuud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg0tv")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_snc1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_5mg0h"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 14
+def = 3
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l77do"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Resource" id="Resource_vrbd7"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 14
+def = 3
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp5a2"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Resource" id="Resource_jy3f6"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 14
+def = 3
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85gpj"]
+resource_local_to_scene = true
+shader = ExtResource("10_1mjim")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Resource" id="Resource_kxruc"]
+resource_local_to_scene = true
+script = ExtResource("8_xt5ad")
+move_range = 5
+attack_range = 1
+max_hp = 20
+hp = 20
+strn = 14
+def = 3
+metadata/_custom_type_script = ExtResource("8_xt5ad")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qva1w"]
+atlas = ExtResource("9_ht5ik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57qb2"]
+atlas = ExtResource("9_ht5ik")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_net0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qva1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57qb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="MapRoot" type="Node2D"]
+script = ExtResource("1_and8k")
+
+[node name="TileManager" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+z_index = -5
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAcAAAAEAAgAAAAAAAgAAAAEAAgAAAAAAAkAAAAEAAgAAAAAAAoAAAAEAAgAAAAAAAwAAAAEAAgAAAAAAA4AAAAEAAgAAAAAAA8AAAABAAIAAAAAABAAAAAAAAIAAAAAABQAAAAEAAgAAAABAAAAAAAEAAgAAAABAAMAAAAEAAgAAAABAAQAAAAEAAgAAAABAAUAAAAEAAgAAAABAAYAAAAEAAgAAAABABIAAAAEAAgAAAABABMAAAAEAAgAAAABABQAAAAEAAgAAAACAAAAAAAEAAgAAAACAAQAAAACAAgAAAACAAUAAAACAAgAAAACAAYAAAACAAgAAAACAAgAAAACAAIAAAACAAkAAAAAAAIAAAACAAoAAAACAAIAAAACAAsAAAAAAAIAAAACABEAAAAEAAgAAAACABIAAAAEAAgAAAACABMAAAAEAAgAAAACABQAAAAEAAgAAAADAAAAAAABAAkAAAADAAMAAAACAAAAAAADAAQAAAADAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAABAAAAAAADAAoAAAAEAAgAAAADAAsAAAAEAAgAAAADABAAAAABAAcAAAADABEAAAAEAAgAAAADABIAAAAEAAgAAAADABMAAAAEAAgAAAADABQAAAAEAAgAAAAEAAAAAAABAAkAAAAEAAEAAAAAAAAAAAAEAAIAAAADAA4AAAAEAAQAAAACAA8AAAAEAAUAAAACAA8AAAAEAAYAAAADAA8AAAAEAAcAAAACAAAAAAAEAAsAAAADAAIAAAAEAA4AAAACAAkAAAAEABAAAAAAAAIAAAAEABEAAAAEAAgAAAAEABIAAAAEAAgAAAAEABMAAAAEAAgAAAAEABQAAAAEAAgAAAAFAAAAAAACAAgAAAAFAAEAAAACAAAAAAAFAAIAAAABABAAAAAFAAMAAAABAA0AAAAFAAQAAAABAA0AAAAFAAUAAAABAA0AAAAFAAYAAAABAA4AAAAFAA4AAAAAAAcAAAAFAA8AAAABAAIAAAAFABAAAAACAAIAAAAFABEAAAAEAAgAAAAFABIAAAAEAAgAAAAFABMAAAAEAAgAAAAFABQAAAAEAAgAAAAGAAAAAAABAAAAAAAGAAEAAAACAAAAAAAGAAIAAAABABAAAAAGAAQAAAABAA0AAAAGAAUAAAABAA0AAAAGAAYAAAABAA4AAAAGAAcAAAABAAAAAAAGAA8AAAADAAIAAAAGABAAAAABAAIAAAAGABEAAAAEAAgAAAAGABIAAAADAAIAAAAGABMAAAAAAAIAAAAGABQAAAAEAAgAAAAHAAAAAAAAAAAAAAAHAAEAAAADAA4AAAAHAAIAAAACABAAAAAHAAMAAAABAA0AAAAHAAUAAAABAA0AAAAHAAYAAAABAA4AAAAHAAcAAAACAAAAAAAHAA8AAAABAAIAAAAHABAAAAABAAIAAAAHABEAAAAAAAIAAAAHABIAAAAEAAgAAAAHABMAAAAAAAIAAAAHABQAAAAEAAgAAAAIAAAAAAABAAAAAAAIAAEAAAABABAAAAAIAAIAAAABAA0AAAAIAAMAAAABAA0AAAAIAAQAAAABAA0AAAAIAAUAAAABAA0AAAAIAAYAAAABAA4AAAAIAA4AAAAEAAgAAAAIABEAAAAEAAgAAAAIABIAAAACAAIAAAAIABMAAAAAAAIAAAAIABQAAAAEAAgAAAAJAAAAAAABAAAAAAAJAAEAAAABABAAAAAJAAIAAAABAA0AAAAJAAMAAAABAA0AAAAJAAQAAAABAA0AAAAJAAUAAAABAA0AAAAJAAYAAAABAA4AAAAJAA4AAAAEAAgAAAAJAA8AAAABAAIAAAAJABEAAAAEAAgAAAAJABIAAAADAAIAAAAJABMAAAACAAIAAAAJABQAAAAEAAgAAAAKAAAAAAADAAAAAAAKAAEAAAAEAA4AAAAKAAIAAAAAAA8AAAAKAAMAAAAAAA8AAAAKAAQAAAAAAA8AAAAKAAUAAAAAAA8AAAAKAAYAAAAEAA8AAAAKAA4AAAAEAAgAAAAKABAAAAACAAIAAAAKABEAAAAEAAgAAAAKABIAAAACAAIAAAAKABMAAAABAAIAAAAKABQAAAAEAAgAAAALAAAAAAADAAgAAAALAAEAAAADAAgAAAALAAIAAAADAAgAAAALAAQAAAADAAgAAAALAAUAAAADAAgAAAALABEAAAAEAAgAAAALABIAAAABAAIAAAALABMAAAACAAIAAAALABQAAAAEAAgAAAAMAAAAAAAEAAgAAAAMAAEAAAAEAAgAAAAMAAIAAAAAAAIAAAAMAAMAAAAAAAIAAAAMAAQAAAAEAAgAAAAMAAUAAAAEAAgAAAAMAAYAAAAAAAIAAAAMAAsAAAAEAAcAAAAMAAwAAAACAAIAAAAMABIAAAACAAIAAAAMABMAAAAEAAgAAAAMABQAAAAEAAgAAAANAAAAAAAEAAgAAAANAAEAAAAEAAgAAAANAAIAAAABAAIAAAANAAMAAAAAAAIAAAANAAQAAAAEAAgAAAANAAUAAAAAAAIAAAANAAYAAAACAAIAAAANAAkAAAACAAIAAAANAAoAAAABAAkAAAANAAsAAAAEAAcAAAANAA8AAAAEAAgAAAANABEAAAAEAAgAAAANABMAAAAEAAgAAAANABQAAAAEAAgAAAAOAAAAAAAEAAgAAAAOAAEAAAAAAAIAAAAOAAIAAAAEAAgAAAAOAAMAAAAAAAIAAAAOAAQAAAAEAAgAAAAOAAUAAAAAAAIAAAAOAAYAAAAEAAgAAAAOAAcAAAAEAAgAAAAOAAgAAAACAAIAAAAOAAkAAAAEAAgAAAAOAAsAAAAEAAcAAAAOAA8AAAAEAAgAAAAOABMAAAAEAAgAAAAOABQAAAAEAAgAAAAPAAAAAAAEAAgAAAAPAAEAAAABAAIAAAAPAAIAAAAEAAgAAAAPAAMAAAADAAIAAAAPAAQAAAAEAAgAAAAPAAUAAAAEAAgAAAAPAAYAAAACAAIAAAAPAAcAAAAEAAgAAAAPAAgAAAAEAAgAAAAPAAoAAAABAAkAAAAPAAsAAAAEAAcAAAAPAAwAAAAAAAIAAAAPAA0AAAAEAAgAAAAPABAAAAAAAAIAAAAPABMAAAAEAAgAAAAPABQAAAAEAAgAAAAQAAAAAAAEAAgAAAAQAAEAAAAAAAIAAAAQAAIAAAAEAAgAAAAQAAMAAAABAAIAAAAQAAQAAAAEAAgAAAAQAAUAAAAEAAgAAAAQAAYAAAAAAAIAAAAQAAcAAAAEAAgAAAAQAAkAAAAAAAIAAAAQAAoAAAACAAkAAAAQAAsAAAAEAAcAAAAQAAwAAAAEAAgAAAAQAA0AAAAEAAgAAAAQAA8AAAAEAAgAAAAQABEAAAABAAIAAAAQABIAAAAAAAIAAAAQABMAAAAEAAgAAAAQABQAAAAEAAgAAAARAAAAAAAEAAgAAAARAAEAAAACAAIAAAARAAIAAAAEAAgAAAARAAMAAAAEAAgAAAARAAQAAAADAAIAAAARAAUAAAAEAAgAAAARAAYAAAAEAAgAAAARAAcAAAACAAIAAAARAAgAAAAAAAIAAAARAAkAAAABAAkAAAARAAoAAAABAAAAAAARAAsAAAAAAAcAAAARAA0AAAAEAAgAAAARAA4AAAAEAAgAAAARAA8AAAACAAIAAAARABIAAAADAAIAAAARABMAAAAEAAgAAAARABQAAAAEAAgAAAASAAAAAAAEAAgAAAASAAIAAAAEAAgAAAASAAMAAAAEAAgAAAASAAUAAAACAAIAAAASAAYAAAAEAAgAAAASAAgAAAAEAAgAAAASAAkAAAACAAkAAAASAAoAAAAEAAcAAAASAAsAAAAEAAgAAAASAAwAAAAEAAgAAAASAA0AAAAEAAgAAAASAA4AAAAEAAgAAAASAA8AAAACAAIAAAASABAAAAAEAAgAAAASABEAAAACAAIAAAASABIAAAAAAAIAAAASABMAAAAEAAgAAAASABQAAAAEAAgAAAATAAAAAAAEAAgAAAATAAEAAAADAAIAAAATAAIAAAAEAAgAAAATAAMAAAAEAAgAAAATAAUAAAABAAIAAAATAAYAAAACAAIAAAATAAcAAAADAAIAAAATAAgAAAACAAkAAAATAAkAAAADAAAAAAATAAoAAAAAAAcAAAATAAsAAAADAAIAAAATAAwAAAACAAIAAAATAA0AAAAAAAIAAAATAA4AAAAAAAIAAAATABAAAAAEAAgAAAATABEAAAAAAAIAAAATABIAAAACAAIAAAATABMAAAAEAAgAAAATABQAAAAEAAgAAAAUAAEAAAAAAAIAAAAUAAIAAAAEAAgAAAAUAAMAAAAEAAgAAAAUAAUAAAACAAgAAAAUAAYAAAACAAgAAAAUAAgAAAAAAAcAAAAUAAkAAAAAAAgAAAAUAAsAAAADAAIAAAAUAAwAAAAAAAIAAAAUAA0AAAAEAAgAAAAUAA4AAAAEAAgAAAAUAA8AAAAEAAgAAAAUABAAAAAEAAgAAAAUABEAAAAEAAgAAAAUABIAAAABAAIAAAAUABMAAAAEAAgAAAAUABQAAAAEAAgAAAAVAAAAAAAEAAgAAAAVAAEAAAADAAIAAAAVAAIAAAAEAAgAAAAVAAMAAAAEAAgAAAAVAAUAAAAAAAkAAAAVAAYAAAADAAAAAAAVAAcAAAAAAAcAAAAVAAgAAAAEAAgAAAAVAAkAAAAEAAgAAAAVAAsAAAAEAAgAAAAVAAwAAAAEAAgAAAAVAA0AAAAEAAgAAAAVAA4AAAAEAAgAAAAVAA8AAAAEAAgAAAAVABAAAAAEAAgAAAAVABEAAAAEAAgAAAAVABIAAAAEAAgAAAAVABQAAAAEAAgAAAAWAAAAAAAEAAgAAAAWAAEAAAABAAIAAAAWAAIAAAAEAAgAAAAWAAMAAAAEAAgAAAAWAAQAAAAEAAgAAAAWAAUAAAAEAAgAAAAWAAYAAAAAAAgAAAAWAAcAAAAEAAgAAAAWAAgAAAAEAAgAAAAWAAkAAAAEAAgAAAAWAAoAAAAEAAgAAAAWAAsAAAAEAAgAAAAWAAwAAAAEAAgAAAAWAA0AAAAEAAgAAAAWAA4AAAAEAAgAAAAWAA8AAAAEAAgAAAAWABAAAAAEAAgAAAAWABEAAAAEAAgAAAAWABIAAAAEAAgAAAAWABMAAAAEAAgAAAAWABQAAAAEAAgAAAAXAAAAAAAEAAgAAAAXAAEAAAAEAAgAAAAXAAIAAAAEAAgAAAAXAAMAAAAEAAgAAAAXAAQAAAAEAAgAAAAXAAUAAAAEAAgAAAAXAAYAAAAEAAgAAAAXAAcAAAAEAAgAAAAXAAgAAAAEAAgAAAAXAAkAAAAEAAgAAAAXAAoAAAAEAAgAAAAXAAsAAAAEAAgAAAAXAAwAAAAEAAgAAAAXAA0AAAAEAAgAAAAXAA4AAAAEAAgAAAAXAA8AAAAEAAgAAAAXABAAAAAEAAgAAAAXABEAAAAEAAgAAAAXABIAAAAEAAgAAAAXABMAAAAEAAgAAAAXABQAAAAEAAgAAAAOABIAAAACAAIAAAAVABMAAAAEAAgAAAAEAAgAAAABAAcAAAAEAAkAAAAEAAgAAAAEAAoAAAAAAAIAAAAFAAcAAAADAAAAAAAMAAkAAAAAAAIAAAAFAAkAAAACAAIAAAAFAAoAAAADAAIAAAAFAAsAAAAEAAgAAAAGAAkAAAACAAIAAAASAAQAAAAEAAgAAAATAAQAAAAEAAgAAAAUAAQAAAAEAAgAAAAVAAQAAAAEAAgAAAAAAAAAAAAEAAgAAAAAAAEAAAAEAAgAAAAAAAMAAAAEAAgAAAAAAAQAAAAEAAgAAAAAAAUAAAAEAAgAAAAAAAYAAAAEAAgAAAABAAcAAAAEAAgAAAABAAgAAAAEAAgAAAABAAkAAAAEAAgAAAABAAoAAAAEAAgAAAABAA0AAAAEAAgAAAABAA4AAAAEAAgAAAABAA8AAAAEAAgAAAABABAAAAACAAgAAAABABEAAAAEAAgAAAAAABEAAAAEAAgAAAAAABIAAAAEAAgAAAAAABMAAAAEAAgAAAALAAMAAAADAAgAAAAGAA0AAAAAAAcAAAACAAwAAAACAAIAAAAHAA4AAAAEAAgAAAAHAA0AAAABAAcAAAAEAA8AAAAAAAcAAAACABAAAAAAAAcAAAACAA4AAAAEAAgAAAACAA0AAAAEAAgAAAAFAA0AAAACAAkAAAADAA8AAAACAAkAAAADAA0AAAACAAIAAAAIAA8AAAAAAAIAAAAKAA0AAAACAAIAAAAOAAoAAAABAAkAAAASAAcAAAAEAAgAAAANAAgAAAABAAIAAAAQAAgAAAAEAAgAAAAGAA4AAAADAAIAAAADAAwAAAAEAAgAAAAEAAwAAAAAAAIAAAAUAAAAAAAEAAgAAAASAAEAAAABAAIAAAACAAcAAAACAAgAAAANAAcAAAAEAAgAAAAPAAkAAAACAAIAAAAIAAkAAAAEAAgAAAALAA0AAAABAAIAAAANAA0AAAAEAAgAAAANAAwAAAAEAAgAAAAFAAgAAAABAAcAAAADAAkAAAAEAAgAAAAGAAgAAAABAAcAAAAHAAQAAAABAA0AAAAGAAMAAAABAA0AAAAIAAcAAAABAAAAAAAIABAAAAACAAIAAAABAAsAAAAEAAgAAAAJAA0AAAABAAIAAAAAAA0AAAAEAAgAAAABAAwAAAAEAAgAAAAEAAMAAAACAA8AAAACAAEAAAACAAgAAAADAAEAAAAAAAAAAAABAAEAAAAEAAgAAAAAAAIAAAAEAAgAAAABAAIAAAAEAAgAAAACAAIAAAACAAgAAAADAAIAAAACAAAAAAAIAA0AAAABAAIAAAAHAAgAAAABAAcAAAAJAAgAAAABAAcAAAAKAAgAAAABAAcAAAAKAAkAAAAEAAgAAAALAAoAAAABAAkAAAAKAAsAAAADAAAAAAAKAAwAAAAAAAcAAAAIAAwAAAAEAAcAAAAHAAwAAAAFAAgAAAAGAAsAAAAAAAIAAAAGAAoAAAAAAAIAAAAHAAkAAAABAAIAAAAJAAcAAAADAAAAAAAKAAcAAAADAAAAAAALAAcAAAADAAgAAAALAAgAAAABAAcAAAALAAkAAAACAAIAAAAJAAoAAAABAAIAAAAIAAoAAAADAAIAAAAHAAoAAAAEAAgAAAAMAAcAAAAEAAgAAAAMAAgAAAAEAAgAAAAKAAoAAAABAAkAAAAJAAsAAAACAAkAAAAGAAwAAAABAAkAAAAIAAsAAAABAAkAAAAHAAsAAAABAAkAAAAJAAkAAAAEAAgAAAADAAgAAAABAAcAAAACAAMAAAACAAgAAAALAAwAAAAEAAgAAAAIAAgAAAABAAcAAAAQAA4AAAAEAAgAAAAAAAsAAAAEAAgAAAAMAAoAAAABAAkAAAAJAAwAAAAEAAcAAAALAAsAAAAEAAcAAAARAAwAAAAEAAgAAAAVAAoAAAAEAAgAAAACAA8AAAABAAkAAAAUAAoAAAAAAAIAAAAUAAcAAAACAAkAAAALAAYAAAADAAgAAAAFAAwAAAABAAIAAAAEAA0AAAABAAIAAAADAA4AAAABAAIAAAAPAA4AAAAEAAgAAAAMAA0AAAAEAAgAAAAOAAwAAAAEAAgAAAALABAAAAACAAIAAAAJABAAAAADAAIAAAARABEAAAAEAAgAAAATAA8AAAACAAIAAAAMABEAAAAEAAgAAAARABAAAAAAAAIAAAALAA4AAAABAAIAAAANABAAAAACAAIAAAANABIAAAAAAAIAAAAQABAAAAADAAIAAAAMAA4AAAACAAIAAAAKAA8AAAACAAIAAAALAA8AAAAEAAgAAAAMAA8AAAAEAAgAAAAMABAAAAAAAAIAAAAPABEAAAAAAAIAAAAPAA8AAAAEAAgAAAAPABIAAAADAAIAAAAOABEAAAABAAIAAAAOABAAAAADAAIAAAANAA4AAAADAAIAAAAOAA0AAAABAAIAAAAOAA4AAAAEAAgAAAA=")
+tile_set = ExtResource("1_t5obx")
+script = ExtResource("2_lblf8")
+
+[node name="Decoration" type="TileMapLayer" parent="TileManager"]
+texture_filter = 1
+tile_set = ExtResource("1_t5obx")
+
+[node name="DebugTiles" type="TileMapLayer" parent="TileManager"]
+tile_set = ExtResource("3_1xuav")
+
+[node name="Units" type="Node2D" parent="TileManager"]
+unique_name_in_owner = true
+script = ExtResource("4_ht5ik")
+
+[node name="Blue" type="Node2D" parent="TileManager/Units"]
+
+[node name="Princess" parent="TileManager/Units/Blue" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_net0g")
+position = Vector2(80, 128)
+sprite_frames = SubResource("SpriteFrames_kxruc")
+frame_progress = 0.0
+move_speed = 2.0
+stats = SubResource("Resource_xt5ad")
+
+[node name="Wiz" parent="TileManager/Units/Blue" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_and8k")
+position = Vector2(128, 144)
+sprite_frames = SubResource("SpriteFrames_1mjim")
+frame_progress = 0.0
+stats = SubResource("Resource_net0g")
+
+[node name="Red" type="Node2D" parent="TileManager/Units"]
+
+[node name="Knight" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_m0e5p")
+position = Vector2(208, 80)
+sprite_frames = SubResource("SpriteFrames_4xdir")
+frame_progress = 0.0
+behavior_script = ExtResource("7_net0g")
+stats = SubResource("Resource_5mg0h")
+
+[node name="Knight2" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_l77do")
+position = Vector2(240, 160)
+sprite_frames = SubResource("SpriteFrames_4xdir")
+frame_progress = 0.0
+behavior_script = ExtResource("7_net0g")
+stats = SubResource("Resource_vrbd7")
+
+[node name="Knight3" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_qp5a2")
+position = Vector2(240, 128)
+sprite_frames = SubResource("SpriteFrames_4xdir")
+frame_progress = 0.0
+behavior_script = ExtResource("7_net0g")
+stats = SubResource("Resource_jy3f6")
+
+[node name="Knight4" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
+material = SubResource("ShaderMaterial_85gpj")
+position = Vector2(224, 96)
+sprite_frames = SubResource("SpriteFrames_4xdir")
+frame_progress = 0.0
+behavior_script = ExtResource("7_net0g")
+stats = SubResource("Resource_kxruc")
+
+[node name="Green" type="Node2D" parent="TileManager/Units"]
+
+[node name="Cursor" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-32, 48)
+sprite_frames = SubResource("SpriteFrames_net0g")
+autoplay = "default"
+script = ExtResource("10_and8k")
+
+[node name="CPUPhase" type="Node" parent="."]
+script = ExtResource("11_1mjim")
+
+[node name="PlayerPhase" parent="." instance=ExtResource("9_5mg0h")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cygmbohiucnm7"]
+
+[ext_resource type="Script" uid="uid://dgl7fb4lgp844" path="res://Logic/move_attack_highlight.gd" id="1_2sv1i"]
+[ext_resource type="TileSet" uid="uid://up3bron3jngb" path="res://2D/Asset Packs/SRPG Pack/UI Elements/selection.tres" id="1_jpmnp"]
+
+[node name="MoveAttackHighlight" type="TileMapLayer"]
+z_index = -2
+texture_filter = 1
+tile_set = ExtResource("1_jpmnp")
+script = ExtResource("1_2sv1i")

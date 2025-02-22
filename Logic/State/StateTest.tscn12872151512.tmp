@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btgs35o8mebxe"]
+
+[ext_resource type="Script" uid="uid://dmda2lr8a0oag" path="res://Logic/State/state_machine.gd" id="1_loppu"]
+[ext_resource type="Script" uid="uid://bvith004brcby" path="res://Logic/State/States/test_state_1.gd" id="2_q6r34"]
+[ext_resource type="Script" path="res://Logic/State/States/test_state_2.gd" id="3_cyc3s"]
+
+[node name="StateTest" type="Node2D" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_loppu")
+initial_state = NodePath("TestState1")
+
+[node name="TestState1" type="Node" parent="."]
+script = ExtResource("2_q6r34")
+metadata/_custom_type_script = ExtResource("2_q6r34")
+
+[node name="TestState2" type="Node" parent="."]
+script = ExtResource("3_cyc3s")
+metadata/_custom_type_script = ExtResource("3_cyc3s")

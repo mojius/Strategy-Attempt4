@@ -1,0 +1,84 @@
+[gd_scene load_steps=17 format=3 uid="uid://cp0vujptc8upp"]
+
+[ext_resource type="Script" uid="uid://crah76lv6hd6s" path="res://Logic/State/States/PlayerPhase/player_phase_state_machine.gd" id="1_17w06"]
+[ext_resource type="Script" uid="uid://81felxj74nue" path="res://Logic/State/States/PlayerPhase/state_map_look.gd" id="2_hm2cc"]
+[ext_resource type="Script" uid="uid://ctax0sl2vj3fm" path="res://Logic/State/States/PlayerPhase/state_move_select.gd" id="3_85pqw"]
+[ext_resource type="Script" uid="uid://drei463s3v4jo" path="res://Logic/State/States/PlayerPhase/state_post_move_menu.gd" id="4_0wxgx"]
+[ext_resource type="PackedScene" uid="uid://cygmbohiucnm7" path="res://Logic/move_attack_highlight.tscn" id="4_3velt"]
+[ext_resource type="Script" uid="uid://c3kqt3m3xbopg" path="res://Logic/State/States/PlayerPhase/state_target_select_info.gd" id="5_3velt"]
+[ext_resource type="PackedScene" uid="uid://b7wc8oftwkf82" path="res://Logic/path_arrow.tscn" id="5_xy5og"]
+[ext_resource type="Script" uid="uid://ccvrd4u82ab3a" path="res://Logic/State/States/PlayerPhase/state_unit_moving.gd" id="6_s66c3"]
+[ext_resource type="Script" uid="uid://cuyevbbfkmd2k" path="res://Logic/State/States/PlayerPhase/state_unit_info.gd" id="6_xy5og"]
+[ext_resource type="PackedScene" uid="uid://cjlc2ebly73av" path="res://2D/Font & Menu/PostMoveMenu.tscn" id="7_3velt"]
+[ext_resource type="Script" uid="uid://cuftfckgn380m" path="res://Logic/State/States/PlayerPhase/state_units_attacking_supporting.gd" id="8_6jofp"]
+[ext_resource type="Script" uid="uid://bniov0yapqfq4" path="res://Logic/State/States/PlayerPhase/state_weapon_select.gd" id="9_hm8km"]
+[ext_resource type="PackedScene" uid="uid://dbdgm3yqaobu6" path="res://2D/Font & Menu/WeaponSelectMenu.tscn" id="11_s66c3"]
+[ext_resource type="PackedScene" uid="uid://dbrhlb1wiea6d" path="res://2D/Font & Menu/TargetButton.tscn" id="13_1wyek"]
+[ext_resource type="PackedScene" uid="uid://d22anyecuw6h2" path="res://2D/Font & Menu/TargetSelectInfoMenu.tscn" id="13_6jofp"]
+[ext_resource type="PackedScene" uid="uid://cfw7fwj1fyqqs" path="res://2D/Font & Menu/UnitsAttackingSupportingMenu.tscn" id="15_hm8km"]
+
+[node name="PlayerPhaseStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_17w06")
+initial_state = NodePath("StateMapLook")
+
+[node name="StateMapLook" type="Node" parent="."]
+script = ExtResource("2_hm2cc")
+metadata/_custom_type_script = ExtResource("2_hm2cc")
+
+[node name="StateMoveSelect" type="Node" parent="."]
+script = ExtResource("3_85pqw")
+metadata/_custom_type_script = ExtResource("3_85pqw")
+
+[node name="PathArrow" parent="StateMoveSelect" instance=ExtResource("5_xy5og")]
+
+[node name="MoveAttackHighlight" parent="StateMoveSelect" instance=ExtResource("4_3velt")]
+
+[node name="StateUnitMoving" type="Node" parent="."]
+script = ExtResource("6_s66c3")
+metadata/_custom_type_script = ExtResource("6_xy5og")
+
+[node name="StatePostMoveMenu" type="Node" parent="."]
+script = ExtResource("4_0wxgx")
+metadata/_custom_type_script = ExtResource("4_0wxgx")
+
+[node name="PostMoveMenu" parent="StatePostMoveMenu" instance=ExtResource("7_3velt")]
+visible = false
+offset_left = 80.0
+offset_top = 59.0
+offset_right = 79.92
+offset_bottom = 58.864
+script = null
+
+[node name="StateWeaponSelect" type="Node" parent="."]
+script = ExtResource("9_hm8km")
+metadata/_custom_type_script = ExtResource("9_hm8km")
+
+[node name="WeaponSelectMenu" parent="StateWeaponSelect" instance=ExtResource("11_s66c3")]
+visible = false
+offset_left = 79.0
+offset_top = 59.0
+offset_right = 186.0
+offset_bottom = 99.0
+
+[node name="StateTargetSelectInfo" type="Node" parent="."]
+script = ExtResource("5_3velt")
+target_button = ExtResource("13_1wyek")
+metadata/_custom_type_script = ExtResource("5_3velt")
+
+[node name="TargetSelectInfoMenu" parent="StateTargetSelectInfo" instance=ExtResource("13_6jofp")]
+visible = false
+offset_left = 79.0
+offset_top = 59.0
+offset_right = 95.0
+offset_bottom = 75.0
+
+[node name="StateUnitInfo" type="Node" parent="."]
+script = ExtResource("6_xy5og")
+metadata/_custom_type_script = ExtResource("6_xy5og")
+
+[node name="StateUnitsAttackingSupporting" type="Node" parent="."]
+script = ExtResource("8_6jofp")
+metadata/_custom_type_script = ExtResource("8_6jofp")
+
+[node name="UnitsAttackingSupportingMenu" parent="StateUnitsAttackingSupporting" instance=ExtResource("15_hm8km")]
+visible = false
