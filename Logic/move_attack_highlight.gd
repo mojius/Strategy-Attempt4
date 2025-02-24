@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	
 func show_range(unit: Unit, tm: TileManager) -> Array:
 	var src_tile : Vector2i = local_to_map(unit.position) 
-	var move_cells = tm.djikstra(src_tile, false, unit.stats.move_range)
+	var move_cells = tm.get_traversable(src_tile, false, unit.stats.move_range)
 	var attack_cells = tm.get_all_attack_range(move_cells, unit.stats.attack_range, unit.faction)
 
 	for cell in attack_cells:

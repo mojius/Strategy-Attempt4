@@ -34,7 +34,7 @@ func hide_arrow():
 func draw() -> void:
 	clear()
 
-	path = tm.astar(local_to_map(source), _area, local_to_map(get_viewport().get_mouse_position()))
+	path = tm.get_astar_path(local_to_map(source), _area, local_to_map(get_viewport().get_mouse_position()))
 	
 	#if path.size() >= _max_range + 1:
 	#	path.resize(_max_range + 1)

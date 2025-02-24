@@ -17,4 +17,6 @@ func _ready() -> void:
     blackboard["Units"] = get_parent().get_node("%Units")
 
 func run() -> void:
+    print("BT Started for ", get_parent().name, "!")
     await first_node.run()
+    await get_tree().create_timer(0.3).timeout

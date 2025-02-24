@@ -11,7 +11,7 @@ func run() -> bool:
     var unit_pos := tm.local_to_map(unit.position)
     var target_pos := tm.local_to_map(target.position)
 
-    var path: Array = tm.astar(unit_pos, move_cells, target_pos)
+    var path: Array = tm.get_astar_path(unit_pos, move_cells, target_pos)
     
     for cell in path:
         if tm.heuristic(cell, target_pos) < unit.stats.attack_range:

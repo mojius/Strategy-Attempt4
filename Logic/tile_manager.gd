@@ -23,10 +23,8 @@ func breadth_first_search(start: Vector2i) -> Array:
 				frontier.push_back(next)
 				reached.append(next)
 	return reached
-	
 
-
-func djikstra(start: Vector2i, above_terrain: bool = false, max_range = 9999, faction: int = 0, goal := Vector2i(-1,-1)) -> Array:
+func get_traversable(start: Vector2i, above_terrain: bool = false, max_range = 100, faction: int = 0, goal := Vector2i(-1,-1)) -> Array:
 	var frontier := PriorityQueue.new()
 	frontier.insert(start, 0)
 	var came_from := Dictionary()
@@ -37,7 +35,6 @@ func djikstra(start: Vector2i, above_terrain: bool = false, max_range = 9999, fa
 	while not frontier.is_empty():
 		var current = frontier.extract()
 		
-
 		if current == goal:
 			break
 		
@@ -52,7 +49,7 @@ func djikstra(start: Vector2i, above_terrain: bool = false, max_range = 9999, fa
 
 			if next not in cost_so_far or new_cost < cost_so_far.get(next, 0):
 				cost_so_far[next] = new_cost
-				var priority = new_cost
+				var priority = new_cost + heuristic(goal, next)
 				frontier.insert(next,priority)
 				came_from[next] = current
 
@@ -62,7 +59,7 @@ func djikstra(start: Vector2i, above_terrain: bool = false, max_range = 9999, fa
 	
 	return array
 
-func astar(start: Vector2i, area: Array, goal := Vector2i(-1,-1)):
+func get_astar_path(start: Vector2i, area: Array, goal := Vector2i(-1,-1)):
 	var frontier := PriorityQueue.new()
 	frontier.insert(start, 0)
 	var came_from := Dictionary()
@@ -73,7 +70,7 @@ func astar(start: Vector2i, area: Array, goal := Vector2i(-1,-1)):
 	if goal not in area:
 		var current_closest = Vector2i(9999,9999)
 		for cell in area:
-			if direct_distance(cell,goal) < direct_distance(current_closest,goal):
+			if direct_distance(cell,goal) < direct_distance(current_closest,goal) and not get_impassable(cell, -1):
 				current_closest = cell
 		if current_closest != Vector2i(9999,9999):
 			goal = current_closest
@@ -105,14 +102,8 @@ func astar(start: Vector2i, area: Array, goal := Vector2i(-1,-1)):
 		path.append(current)
 		current = came_from[current]
 	
-	for i in range(0, path.size()):
-		var cell = path[i]
-		if cell == path.back() and get_unit_at_cell(cell):
-			path.erase(cell)
-	
 	path.append(start)
 	path.reverse()
-
 	return path
 
 func heuristic(a: Vector2i, b: Vector2i):
@@ -140,9 +131,10 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 
 	var target = get_unit_at_cell(coords)
 	if target:
-		if $Units.opposes_faction(faction, target.faction):
+		if faction == -1:
 			return true
-
+		elif $Units.opposes_faction(faction, target.faction):
+			return true
 
 	var water = get_cell_tile_data(coords).get_custom_data("Water")
 	if water and $Decoration.get_cell_tile_data(coords) == null: return true
@@ -161,13 +153,14 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 func get_all_attack_range(area: Array, attack_range: int, faction: int) -> Array:
 	var attack_area: Array = []
 	for cell in area:
-		attack_area += djikstra(cell, true, attack_range, faction)
+		if get_impassable(cell, -1): continue
+		attack_area += get_traversable(cell, true, attack_range, faction)
 		
 	return attack_area
 
 # Returns the targets you can attack (from a standstill position.)
 func get_attackable_targets(unit: Unit) -> Array:
-	var attack_area = djikstra(local_to_map(unit.position), true, unit.stats.attack_range, unit.faction)
+	var attack_area = get_traversable(local_to_map(unit.position), true, unit.stats.attack_range, unit.faction)
 	var targets: Array = []
 	for cell in attack_area:
 		var target = get_unit_at_cell(cell)
@@ -187,13 +180,15 @@ func get_closest_enemy(unit: Unit) -> Unit:
 		enemies = $Units.get_all_units_in_faction(1)
 	elif unit.faction == 1:
 		enemies = $Units.get_all_units_in_faction(2) + $Units.get_all_units_in_faction(0)
-	var all_move_area: Array = djikstra(local_to_map(unit.position), false, 9999, unit.faction)
+	var all_move_area: Array = get_traversable(local_to_map(unit.position), false, 100, unit.faction)
 	
 	enemies.sort_custom(func(a: Unit, b: Unit): 
 		var a_coords = local_to_map(a.position)
 		var b_coords = local_to_map(b.position)
 		var unit_coords = local_to_map(unit.position)
-		return astar(unit_coords, all_move_area, a_coords).size() < astar(unit_coords, all_move_area, b_coords).size())
+		var first_test = get_astar_path(unit_coords, all_move_area, a_coords).size()
+		var second_test = get_astar_path(unit_coords, all_move_area, b_coords).size()
+		return first_test < second_test)
 
 	if enemies.size() > 0:
 		return enemies[0]
@@ -202,8 +197,8 @@ func get_closest_enemy(unit: Unit) -> Unit:
 	return null
 
 func get_path_towards_destination(start: Vector2i, max_range: int, destination: Vector2i, faction: int = 0) -> Array:
-	var all_move_area: Array = djikstra(start, false, 9999, faction)
-	var path: Array = astar(start, all_move_area, destination)
+	var all_move_area: Array = get_traversable(start, false, 100, faction)
+	var path: Array = get_astar_path(start, all_move_area, destination)
 
 	var total_cost = 0
 	var adjusted_path: Array = []
