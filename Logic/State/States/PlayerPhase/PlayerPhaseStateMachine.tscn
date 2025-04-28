@@ -23,11 +23,11 @@ initial_state = NodePath("StateMapLook")
 
 [node name="StateMapLook" type="Node" parent="."]
 script = ExtResource("2_hm2cc")
-metadata/_custom_type_script = ExtResource("2_hm2cc")
+metadata/_custom_type_script = "uid://81felxj74nue"
 
 [node name="StateMoveSelect" type="Node" parent="."]
 script = ExtResource("3_85pqw")
-metadata/_custom_type_script = ExtResource("3_85pqw")
+metadata/_custom_type_script = "uid://ctax0sl2vj3fm"
 
 [node name="PathArrow" parent="StateMoveSelect" instance=ExtResource("5_xy5og")]
 
@@ -35,11 +35,11 @@ metadata/_custom_type_script = ExtResource("3_85pqw")
 
 [node name="StateUnitMoving" type="Node" parent="."]
 script = ExtResource("6_s66c3")
-metadata/_custom_type_script = ExtResource("6_xy5og")
+metadata/_custom_type_script = "uid://cuyevbbfkmd2k"
 
 [node name="StatePostMoveMenu" type="Node" parent="."]
 script = ExtResource("4_0wxgx")
-metadata/_custom_type_script = ExtResource("4_0wxgx")
+metadata/_custom_type_script = "uid://drei463s3v4jo"
 
 [node name="PostMoveMenu" parent="StatePostMoveMenu" instance=ExtResource("7_3velt")]
 visible = false
@@ -51,7 +51,7 @@ script = null
 
 [node name="StateWeaponSelect" type="Node" parent="."]
 script = ExtResource("9_hm8km")
-metadata/_custom_type_script = ExtResource("9_hm8km")
+metadata/_custom_type_script = "uid://bniov0yapqfq4"
 
 [node name="WeaponSelectMenu" parent="StateWeaponSelect" instance=ExtResource("11_s66c3")]
 visible = false
@@ -63,7 +63,7 @@ offset_bottom = 99.0
 [node name="StateTargetSelectInfo" type="Node" parent="."]
 script = ExtResource("5_3velt")
 target_button = ExtResource("13_1wyek")
-metadata/_custom_type_script = ExtResource("5_3velt")
+metadata/_custom_type_script = "uid://c3kqt3m3xbopg"
 
 [node name="TargetSelectInfoMenu" parent="StateTargetSelectInfo" instance=ExtResource("13_6jofp")]
 visible = false
@@ -74,11 +74,11 @@ offset_bottom = 75.0
 
 [node name="StateUnitInfo" type="Node" parent="."]
 script = ExtResource("6_xy5og")
-metadata/_custom_type_script = ExtResource("6_xy5og")
+metadata/_custom_type_script = "uid://cuyevbbfkmd2k"
 
 [node name="StateUnitsAttackingSupporting" type="Node" parent="."]
 script = ExtResource("8_6jofp")
-metadata/_custom_type_script = ExtResource("8_6jofp")
+metadata/_custom_type_script = "uid://cuftfckgn380m"
 
 [node name="UnitsAttackingSupportingMenu" parent="StateUnitsAttackingSupporting" instance=ExtResource("15_hm8km")]
 visible = false
