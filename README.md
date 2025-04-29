@@ -1,3 +1,2 @@
-# strategy
+# Strategy Attempt 4
  A strategy RPG.
- If you're reading this, you should DIE!! 😱😱😱 EEEEE WAWAWAWAWA
