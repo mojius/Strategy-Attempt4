@@ -3,7 +3,8 @@ class_name StatsResource
 extends Resource
 
 @export var move_range: int = 5
-@export var attack_range: int = 1
+@export var min_atk_range: int = 1
+@export var max_atk_range: int = 1
 @export var max_hp: int = 20
 @export var hp := 20 :
     set(value):

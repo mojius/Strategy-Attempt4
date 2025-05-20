@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://ccvrd4u82ab3a" path="res://Logic/State/States/PlayerPhase/state_unit_moving.gd" id="6_s66c3"]
 [ext_resource type="Script" uid="uid://cuyevbbfkmd2k" path="res://Logic/State/States/PlayerPhase/state_unit_info.gd" id="6_xy5og"]
 [ext_resource type="PackedScene" uid="uid://cjlc2ebly73av" path="res://2D/Menu/PostMoveMenu.tscn" id="7_3velt"]
-[ext_resource type="Script" uid="uid://cuftfckgn380m" path="res://Logic/State/States/PlayerPhase/state_units_attacking_supporting.gd" id="8_6jofp"]
+[ext_resource type="Script" uid="uid://bjbj0hs42bcpm" path="res://Logic/State/States/PlayerPhase/state_units_combat.gd" id="8_6jofp"]
 [ext_resource type="Script" uid="uid://bniov0yapqfq4" path="res://Logic/State/States/PlayerPhase/state_weapon_select.gd" id="9_hm8km"]
 [ext_resource type="PackedScene" uid="uid://dbdgm3yqaobu6" path="res://2D/Menu/WeaponSelectMenu.tscn" id="11_s66c3"]
 [ext_resource type="PackedScene" uid="uid://dbrhlb1wiea6d" path="res://2D/Menu/TargetButton.tscn" id="13_1wyek"]
@@ -76,9 +76,8 @@ offset_bottom = 75.0
 script = ExtResource("6_xy5og")
 metadata/_custom_type_script = "uid://cuyevbbfkmd2k"
 
-[node name="StateUnitsAttackingSupporting" type="Node" parent="."]
+[node name="StateUnitsCombat" type="Node" parent="."]
 script = ExtResource("8_6jofp")
-metadata/_custom_type_script = "uid://cuftfckgn380m"
 
-[node name="UnitsAttackingSupportingMenu" parent="StateUnitsAttackingSupporting" instance=ExtResource("15_hm8km")]
+[node name="UnitsCombatMenu" parent="StateUnitsCombat" instance=ExtResource("15_hm8km")]
 visible = false

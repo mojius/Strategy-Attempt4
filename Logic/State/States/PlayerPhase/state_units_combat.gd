@@ -3,7 +3,7 @@ class_name StateUnitsAttackingSupporting
 extends State
 
 @onready var menu: HBoxContainer = $CombatMenu
-@onready var combat_panel: PackedScene = preload("res://2D/Font & Menu/CombatPanel.tscn")
+@onready var combat_panel: PackedScene = preload("res://2D/Menu/CombatPanel.tscn")
 
 func state_enter():
 	menu.show()

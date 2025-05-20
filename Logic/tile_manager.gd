@@ -11,18 +11,7 @@ func get_cell_tiles_data(coords: Vector2i) -> Array[TileData]:
 		array.add(t.get_cell_tile_data(coords))
 	return array
 
-func breadth_first_search(start: Vector2i) -> Array:
-	var frontier = []
-	frontier.push_back(start)
-	var reached = []
 
-	while not frontier.is_empty():
-		var current = frontier.pop_front()
-		for next in $Ground.get_surrounding_cells(current):
-			if next not in reached and next in $Ground.get_used_cells():
-				frontier.push_back(next)
-				reached.append(next)
-	return reached
 
 func get_traversable(start: Vector2i, above_terrain: bool = false, max_range = 100, faction: int = 0, goal := Vector2i(-1,-1)) -> Array:
 	var frontier := PriorityQueue.new()
@@ -148,17 +137,46 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 	return terrain_pass or decor_pass
 
 # Returns the area in which you can attack, based on your move area and your max attack range.
-func get_all_attack_range(area: Array, attack_range: int, faction: int) -> Array:
+func get_all_attack_range(area: Array, min_range: int, max_range: int, faction: int) -> Array:
 	var attack_area: Array = []
 	for cell in area:
-		if get_impassable(cell, -1): continue
-		attack_area += get_traversable(cell, true, attack_range, faction)
+		attack_area += get_attackable_tiles(cell, min_range, max_range) 
 		
 	return attack_area
 
+func get_attackable_tiles(start: Vector2i, min_range: int, max_range: int) -> Array:
+	var frontier := []
+	frontier.push_back(start)
+	var visited := []
+	var cost_so_far = Dictionary()
+	cost_so_far[start] = 0
+
+	while not frontier.is_empty():
+		var current = frontier.pop_front()
+		
+		for next in get_surrounding_cells(current):
+			if next not in get_used_cells(): continue 
+
+			var new_cost = cost_so_far.get(current,0) + 1
+
+			if new_cost > max_range: continue
+
+			if next not in cost_so_far or new_cost < cost_so_far.get(next, 0):
+				cost_so_far[next] = new_cost
+				frontier.push_back(next)
+				visited.push_back(next)
+
+	var array:= []
+	for tile in visited:
+		if (cost_so_far[tile] >= min_range and cost_so_far[tile] <= max_range):
+			array.append(tile)
+	
+	return array
+
+
 # Returns the targets you can attack (from a standstill position.)
 func get_attackable_targets(unit: Unit) -> Array:
-	var attack_area = get_traversable(local_to_map(unit.position), true, unit.stats.attack_range, unit.faction)
+	var attack_area = get_attackable_tiles(local_to_map(unit.position), unit.stats.min_atk_range, unit.stats.max_atk_range)
 	var targets: Array = []
 	for cell in attack_area:
 		var target = get_unit_at_cell(cell)
