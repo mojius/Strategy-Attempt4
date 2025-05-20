@@ -10,17 +10,17 @@
 [ext_resource type="Script" uid="uid://dakphmef0bo0w" path="res://Logic/StatsResource.gd" id="8_h5yim"]
 [ext_resource type="Texture2D" uid="uid://blp0q2s0ykn6e" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Archer/Archer_Blue2.png" id="9_qd621"]
 [ext_resource type="Shader" uid="uid://ctecbhdlt60t1" path="res://Logic/highlight.gdshader" id="10_w0jat"]
-[ext_resource type="SpriteFrames" uid="uid://chvgw164chgaa" path="res://2D/Frames/fighter2.tres" id="11_gwi3d"]
+[ext_resource type="SpriteFrames" uid="uid://chvgw164chgaa" path="res://2D/Frame Resources/fighter2.tres" id="11_gwi3d"]
 [ext_resource type="Texture2D" uid="uid://dfysaklrclm8s" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Thief/Thief_Red2.png" id="13_r6hit"]
 [ext_resource type="Texture2D" uid="uid://dgdynyprhd87g" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Archer/Archer_Red1.png" id="15_o1vqd"]
 [ext_resource type="Texture2D" uid="uid://lkfdgxs8u2g5" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/AxeKnight/AxeKnight_Red.png" id="16_rglc7"]
-[ext_resource type="SpriteFrames" uid="uid://bdwowip1hro7y" path="res://2D/Frames/wiz.tres" id="18_phoi4"]
+[ext_resource type="SpriteFrames" uid="uid://bdwowip1hro7y" path="res://2D/Frame Resources/wiz.tres" id="18_phoi4"]
 [ext_resource type="Script" uid="uid://dt4v56wjt2u0o" path="res://Maps/cpu_phase.gd" id="18_rhakd"]
 [ext_resource type="Texture2D" uid="uid://bwlfaux71o3k8" path="res://2D/Asset Packs/SRPG Pack/UI Elements/SelectionCursor.png" id="19_0hmhm"]
 [ext_resource type="Script" uid="uid://d4brb7ar0x8bv" path="res://Logic/cursor.gd" id="20_xymp5"]
 [ext_resource type="PackedScene" uid="uid://cp0vujptc8upp" path="res://Logic/State/States/PlayerPhase/PlayerPhaseStateMachine.tscn" id="22_emoau"]
 
-[sub_resource type="Shader" id="Shader_qsbsc"]
+[sub_resource type="Shader" id="Shader_rhakd"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -35,7 +35,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wjb7"]
 resource_local_to_scene = true
-shader = SubResource("Shader_qsbsc")
+shader = SubResource("Shader_rhakd")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -86,7 +86,7 @@ strn = 6
 def = 6
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_su8i7"]
+[sub_resource type="Shader" id="Shader_qsbsc"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -101,7 +101,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e76vu"]
 resource_local_to_scene = true
-shader = SubResource("Shader_su8i7")
+shader = SubResource("Shader_qsbsc")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -169,7 +169,7 @@ strn = 10
 def = 6
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_71sou"]
+[sub_resource type="Shader" id="Shader_su8i7"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -184,7 +184,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6f5t"]
 resource_local_to_scene = true
-shader = SubResource("Shader_71sou")
+shader = SubResource("Shader_su8i7")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -358,7 +358,7 @@ strn = 4
 def = 4
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_ekc3x"]
+[sub_resource type="Shader" id="Shader_71sou"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -373,7 +373,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60pd8"]
 resource_local_to_scene = true
-shader = SubResource("Shader_ekc3x")
+shader = SubResource("Shader_71sou")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 

@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=29 format=3 uid="uid://b8l8dxk6ncn7s"]
 
-[ext_resource type="FontFile" uid="uid://uu4ns73p1ne1" path="res://2D/Font & Menu/Piacevoli.ttf" id="1_myq3t"]
-[ext_resource type="StyleBox" uid="uid://utws6wrfxcqi" path="res://2D/Font & Menu/button-box.tres" id="2_baquo"]
+[ext_resource type="FontFile" uid="uid://uu4ns73p1ne1" path="res://2D/Font & Style/Piacevoli.ttf" id="1_myq3t"]
+[ext_resource type="StyleBox" uid="uid://utws6wrfxcqi" path="res://2D/Font & Style/button-box.tres" id="2_baquo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fgle"]
 

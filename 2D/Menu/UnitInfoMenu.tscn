@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkjhnaxyx8dpt"]
 
-[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Menu/default-ui.tres" id="1_vdtnt"]
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_vdtnt"]
 [ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="2_yvasx"]
 
 [node name="PanelContainer" type="PanelContainer"]

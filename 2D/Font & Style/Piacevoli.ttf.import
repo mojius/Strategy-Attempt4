@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://uu4ns73p1ne1"
-path="res://.godot/imported/Piacevoli.ttf-a73ae1058d6fd3c0eb82a1d5a4c75486.fontdata"
+path="res://.godot/imported/Piacevoli.ttf-ea250eeff4c8c3e99fa75329fe717a22.fontdata"
 
 [deps]
 
-source_file="res://2D/Font & Menu/Piacevoli.ttf"
-dest_files=["res://.godot/imported/Piacevoli.ttf-a73ae1058d6fd3c0eb82a1d5a4c75486.fontdata"]
+source_file="res://2D/Font & Style/Piacevoli.ttf"
+dest_files=["res://.godot/imported/Piacevoli.ttf-ea250eeff4c8c3e99fa75329fe717a22.fontdata"]
 
 [params]
 

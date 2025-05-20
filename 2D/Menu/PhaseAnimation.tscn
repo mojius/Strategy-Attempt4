@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cup5t6yk2lxdo"]
 
 [ext_resource type="Texture2D" uid="uid://dwfd087qieovq" path="res://2D/Original/ally-phase.png" id="1_2av48"]
-[ext_resource type="Script" uid="uid://desn8y2t2jfe5" path="res://2D/Font & Menu/phase_animation.gd" id="1_a6ysy"]
+[ext_resource type="Script" uid="uid://desn8y2t2jfe5" path="res://2D/Menu/phase_animation.gd" id="1_a6ysy"]
 [ext_resource type="Texture2D" uid="uid://b4lcke0c1nmha" path="res://2D/Original/player-phase.png" id="2_hltrq"]
 [ext_resource type="Texture2D" uid="uid://c0qq655h82um4" path="res://2D/Original/enemy-phase.png" id="4_c6kn6"]
 

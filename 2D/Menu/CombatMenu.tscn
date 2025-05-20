@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfw7fwj1fyqqs"]
 
-[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Menu/default-ui.tres" id="1_b3f05"]
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_lw2v1"]
 
-[node name="UnitsAttackingSupportingMenu" type="HBoxContainer"]
+[node name="CombatMenu" type="HBoxContainer"]
 z_index = 40
 z_as_relative = false
 texture_filter = 1
@@ -14,4 +14,4 @@ offset_top = 64.0
 offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_b3f05")
+theme = ExtResource("1_lw2v1")

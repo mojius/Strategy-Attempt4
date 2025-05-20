@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://jjon6b0mpoqe"]
 
-[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Menu/default-ui.tres" id="1_0vuk4"]
-[ext_resource type="Script" uid="uid://cn024fg64hp6g" path="res://2D/Font & Menu/combat_panel.gd" id="2_8vtlb"]
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_0vuk4"]
+[ext_resource type="Script" uid="uid://cn024fg64hp6g" path="res://2D/Menu/combat_panel.gd" id="2_8vtlb"]
 [ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="2_kimq3"]
-[ext_resource type="PackedScene" uid="uid://ckvr206xukl34" path="res://2D/Font & Menu/HealthPellet.tscn" id="3_8vtlb"]
+[ext_resource type="PackedScene" uid="uid://ckvr206xukl34" path="res://2D/Menu/HealthPellet.tscn" id="3_8vtlb"]
 
 [node name="CombatPanel" type="CenterContainer"]
 z_index = 40

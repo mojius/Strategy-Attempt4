@@ -35,7 +35,7 @@ mouse_cursor/custom_image="uid://cpxh60m2gunnr"
 folder_colors={
 "res://2D/": "green",
 "res://2D/Asset Packs/": "yellow",
-"res://2D/Font & Menu/": "purple",
+"res://2D/Font & Style/": "purple",
 "res://2D/Original/": "blue",
 "res://2D/Ref/": "pink",
 "res://Logic/": "red",

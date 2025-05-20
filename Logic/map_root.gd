@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var phase_scene: PackedScene = preload("res://2D/Font & Menu/PhaseAnimation.tscn")
+@onready var phase_scene: PackedScene = preload("res://2D/Menu/PhaseAnimation.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,4 +38,3 @@ func ally_phase(phase_animator):
 		%Units.refresh_units()
 		await $CPUPhase.run_green()
 		get_tree().create_timer(0.5)
-

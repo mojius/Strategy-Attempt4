@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dum10lpmrfhg4"]
 
 [ext_resource type="Texture2D" uid="uid://5db1y8pn2w56" path="res://2D/Asset Packs/Cursors Pack/menu_cursor.png" id="1_vry2q"]
-[ext_resource type="Script" uid="uid://0v6i460i6i03" path="res://2D/Font & Menu/menu_cursor.gd" id="2_sy6o2"]
+[ext_resource type="Script" uid="uid://0v6i460i6i03" path="res://2D/Menu/menu_cursor.gd" id="2_sy6o2"]
 
 [sub_resource type="Animation" id="Animation_sy6o2"]
 length = 0.001

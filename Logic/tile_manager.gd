@@ -145,8 +145,6 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 	if decor == null: return terrain_pass
 	var decor_pass = decor.get_custom_data("Impassable")
 
-
-
 	return terrain_pass or decor_pass
 
 # Returns the area in which you can attack, based on your move area and your max attack range.

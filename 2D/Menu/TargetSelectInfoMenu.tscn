@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d22anyecuw6h2"]
 
-[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Menu/default-ui.tres" id="1_woc08"]
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_woc08"]
 [ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="2_4r7t1"]
-[ext_resource type="PackedScene" uid="uid://dum10lpmrfhg4" path="res://2D/Font & Menu/MenuCursor.tscn" id="3_gj5dc"]
+[ext_resource type="PackedScene" uid="uid://dum10lpmrfhg4" path="res://2D/Menu/MenuCursor.tscn" id="3_gj5dc"]
 
 [node name="PanelContainer" type="PanelContainer"]
 z_index = 80
