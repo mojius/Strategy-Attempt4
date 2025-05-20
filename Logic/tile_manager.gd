@@ -137,7 +137,7 @@ func get_impassable(coords: Vector2i, faction: int) -> bool:
 	return terrain_pass or decor_pass
 
 # Returns the area in which you can attack, based on your move area and your max attack range.
-func get_all_attack_range(area: Array, min_range: int, max_range: int, faction: int) -> Array:
+func get_all_attack_range(area: Array, min_range: int, max_range: int) -> Array:
 	var attack_area: Array = []
 	for cell in area:
 		attack_area += get_attackable_tiles(cell, min_range, max_range) 
