@@ -39,9 +39,6 @@ folder_colors={
 "res://2D/Original/": "blue",
 "res://2D/Ref/": "pink",
 "res://Logic/": "red",
-"res://Logic/AI/": "pink",
-"res://Logic/AI/Nodes/Leaf/": "green",
-"res://Logic/AI/Trees/": "green",
 "res://Logic/State/": "gray"
 }
 

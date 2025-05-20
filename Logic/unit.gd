@@ -4,9 +4,6 @@ extends AnimatedSprite2D
 enum Faction { Blue, Red, Green }
 var faction: Faction = Faction.Blue
 
-@export var behavior_script: PackedScene
-var behavior: BehaviorTree
-
 ## Move speed during pathfinding.
 @export var move_speed: float = 1.0
 
@@ -68,11 +65,3 @@ func die():
 	await $AnimationPlayer.animation_finished
 	queue_free()
 	
-# If you have an ai script (behavior tree) and it's not already a child of you, ready it.
-func run_behavior():
-	if behavior_script and not behavior:
-		var b: BehaviorTree = behavior_script.instantiate()
-		add_child(b)
-		behavior = b
-	
-	await behavior.run()

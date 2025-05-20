@@ -249,7 +249,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="MapRoot" type="Node2D"]
+[node name="MapRoot2" type="Node2D"]
 script = ExtResource("1_and8k")
 
 [node name="TileManager" type="TileMapLayer" parent="."]
