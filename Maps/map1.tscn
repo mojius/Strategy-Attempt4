@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://b0y04gufotk20"]
+[gd_scene load_steps=67 format=4 uid="uid://b0y04gufotk20"]
 
 [ext_resource type="Script" uid="uid://byjmtde7lfpi3" path="res://Logic/map_root.gd" id="1_71sou"]
 [ext_resource type="TileSet" uid="uid://cipyw8f5aojg" path="res://Maps/map_tiles.tres" id="2_ekc3x"]
@@ -11,19 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://blp0q2s0ykn6e" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Archer/Archer_Blue2.png" id="9_qd621"]
 [ext_resource type="Shader" uid="uid://ctecbhdlt60t1" path="res://Logic/highlight.gdshader" id="10_w0jat"]
 [ext_resource type="SpriteFrames" uid="uid://chvgw164chgaa" path="res://2D/Frames/fighter2.tres" id="11_gwi3d"]
-[ext_resource type="PackedScene" uid="uid://b2wtx00rfuba6" path="res://Logic/AI/Trees/AmbushBT.tscn" id="12_o8am3"]
 [ext_resource type="Texture2D" uid="uid://dfysaklrclm8s" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Thief/Thief_Red2.png" id="13_r6hit"]
-[ext_resource type="PackedScene" uid="uid://dmvcoekka4lj7" path="res://Logic/AI/Trees/ChargeUnitBT.tscn" id="14_hnjct"]
 [ext_resource type="Texture2D" uid="uid://dgdynyprhd87g" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/Archer/Archer_Red1.png" id="15_o1vqd"]
 [ext_resource type="Texture2D" uid="uid://lkfdgxs8u2g5" path="res://2D/Asset Packs/SRPG Pack/Sprite Sheets/AxeKnight/AxeKnight_Red.png" id="16_rglc7"]
-[ext_resource type="PackedScene" uid="uid://sduivhdlfx32" path="res://Logic/AI/Trees/HoldPositionAttackBT.tscn" id="17_sirey"]
 [ext_resource type="SpriteFrames" uid="uid://bdwowip1hro7y" path="res://2D/Frames/wiz.tres" id="18_phoi4"]
 [ext_resource type="Texture2D" uid="uid://bwlfaux71o3k8" path="res://2D/Asset Packs/SRPG Pack/UI Elements/SelectionCursor.png" id="19_0hmhm"]
 [ext_resource type="Script" uid="uid://d4brb7ar0x8bv" path="res://Logic/cursor.gd" id="20_xymp5"]
-[ext_resource type="Script" uid="uid://cr1q45swwrhjd" path="res://Logic/AI/Nodes/enemy_bt_tester.gd" id="21_o8dy2"]
 [ext_resource type="PackedScene" uid="uid://cp0vujptc8upp" path="res://Logic/State/States/PlayerPhase/PlayerPhaseStateMachine.tscn" id="22_emoau"]
 
-[sub_resource type="Shader" id="Shader_71sou"]
+[sub_resource type="Shader" id="Shader_uy3fh"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -38,7 +34,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wjb7"]
 resource_local_to_scene = true
-shader = SubResource("Shader_71sou")
+shader = SubResource("Shader_uy3fh")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -89,7 +85,7 @@ strn = 6
 def = 6
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_ekc3x"]
+[sub_resource type="Shader" id="Shader_rhakd"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -104,7 +100,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e76vu"]
 resource_local_to_scene = true
-shader = SubResource("Shader_ekc3x")
+shader = SubResource("Shader_rhakd")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -172,7 +168,7 @@ strn = 10
 def = 6
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_r3mq3"]
+[sub_resource type="Shader" id="Shader_qsbsc"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -187,7 +183,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6f5t"]
 resource_local_to_scene = true
-shader = SubResource("Shader_r3mq3")
+shader = SubResource("Shader_qsbsc")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -361,7 +357,7 @@ strn = 4
 def = 4
 metadata/_custom_type_script = ExtResource("8_h5yim")
 
-[sub_resource type="Shader" id="Shader_tny4c"]
+[sub_resource type="Shader" id="Shader_su8i7"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -376,7 +372,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60pd8"]
 resource_local_to_scene = true
-shader = SubResource("Shader_tny4c")
+shader = SubResource("Shader_su8i7")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -466,7 +462,6 @@ material = SubResource("ShaderMaterial_o6f5t")
 position = Vector2(128, 80)
 sprite_frames = ExtResource("11_gwi3d")
 frame_progress = 0.0
-behavior_script = ExtResource("12_o8am3")
 stats = SubResource("Resource_o6f5t")
 
 [node name="Thief" parent="TileManager/Units/Red" instance=ExtResource("6_wtuuf")]
@@ -474,7 +469,6 @@ material = SubResource("ShaderMaterial_bwcnd")
 position = Vector2(336, 32)
 sprite_frames = SubResource("SpriteFrames_jbc7w")
 frame_progress = 0.0
-behavior_script = ExtResource("14_hnjct")
 stats = SubResource("Resource_7cgle")
 
 [node name="Archer" parent="TileManager/Units/Red" instance=ExtResource("6_wtuuf")]
@@ -482,7 +476,6 @@ material = SubResource("ShaderMaterial_7cgle")
 position = Vector2(240, 128)
 sprite_frames = SubResource("SpriteFrames_o0hjy")
 frame_progress = 0.0
-behavior_script = ExtResource("14_hnjct")
 stats = SubResource("Resource_8wjb7")
 
 [node name="Axe Knight" parent="TileManager/Units/Red" instance=ExtResource("6_wtuuf")]
@@ -490,7 +483,6 @@ material = SubResource("ShaderMaterial_hdoxw")
 position = Vector2(272, 96)
 sprite_frames = SubResource("SpriteFrames_hdoxw")
 frame_progress = 0.0
-behavior_script = ExtResource("17_sirey")
 stats = SubResource("Resource_2jujc")
 
 [node name="Green" type="Node2D" parent="TileManager/Units"]
@@ -500,7 +492,6 @@ material = SubResource("ShaderMaterial_60pd8")
 position = Vector2(240, 144)
 sprite_frames = ExtResource("18_phoi4")
 frame_progress = 0.0
-behavior_script = ExtResource("14_hnjct")
 stats = SubResource("Resource_ara3i")
 
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
@@ -512,6 +503,5 @@ frame_progress = 0.421341
 script = ExtResource("20_xymp5")
 
 [node name="CPUPhase" type="Node" parent="."]
-script = ExtResource("21_o8dy2")
 
 [node name="PlayerPhase" parent="." instance=ExtResource("22_emoau")]
