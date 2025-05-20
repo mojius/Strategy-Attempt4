@@ -13,22 +13,19 @@ func _ready() -> void:
 		await enemy_phase(phase_animator)
 		await ally_phase(phase_animator)
 
-
-
 func _process(_delta) -> void:
 	if %Units.find_child("Blue").get_child_count() == 0: get_tree().quit()
 
-
 func player_phase(phase_animator):
-		get_tree().create_timer(0.5)
 		await phase_animator.play(0)
 		get_tree().create_timer(0.5)
 		%Units.refresh_units()
 		$PlayerPhase.run()
 		await $PlayerPhase.turn_ended
+		get_tree().create_timer(0.5)
+
 
 func enemy_phase(phase_animator):
-		get_tree().create_timer(0.5)
 		await phase_animator.play(1)
 		get_tree().create_timer(0.5)
 		%Units.refresh_units()
@@ -40,3 +37,5 @@ func ally_phase(phase_animator):
 		get_tree().create_timer(0.5)
 		%Units.refresh_units()
 		await $CPUPhase.run_green()
+		get_tree().create_timer(0.5)
+
