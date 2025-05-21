@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://1s323cu6u7ly"]
+[gd_scene load_steps=45 format=4 uid="uid://1s323cu6u7ly"]
 
 [ext_resource type="Script" uid="uid://byjmtde7lfpi3" path="res://Logic/map_root.gd" id="1_and8k"]
 [ext_resource type="TileSet" uid="uid://cipyw8f5aojg" path="res://Maps/map_tiles.tres" id="1_t5obx"]
@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://up3bron3jngb" path="res://2D/Asset Packs/SRPG Pack/UI Elements/selection.tres" id="3_1xuav"]
 [ext_resource type="Script" uid="uid://c8fmdno3mvj5q" path="res://Logic/units.gd" id="4_ht5ik"]
 [ext_resource type="PackedScene" uid="uid://dvc2rtqpj1un3" path="res://Logic/unit.tscn" id="5_and8k"]
-[ext_resource type="PackedScene" uid="uid://dmvcoekka4lj7" path="res://Logic/AI/Trees/ChargeUnitBT.tscn" id="7_net0g"]
 [ext_resource type="Texture2D" uid="uid://d3qsaeonooppt" path="res://2D/Original/princess/princess-idle.png" id="8_net0g"]
 [ext_resource type="Script" uid="uid://dakphmef0bo0w" path="res://Logic/StatsResource.gd" id="8_xt5ad"]
 [ext_resource type="PackedScene" uid="uid://cp0vujptc8upp" path="res://Logic/State/States/PlayerPhase/PlayerPhaseStateMachine.tscn" id="9_5mg0h"]
@@ -14,7 +13,6 @@
 [ext_resource type="Shader" uid="uid://ctecbhdlt60t1" path="res://Logic/highlight.gdshader" id="10_1mjim"]
 [ext_resource type="Script" uid="uid://d4brb7ar0x8bv" path="res://Logic/cursor.gd" id="10_and8k"]
 [ext_resource type="Texture2D" uid="uid://ckxa7r6jcndy3" path="res://2D/Original/wiz/wiz-idle.png" id="10_net0g"]
-[ext_resource type="Script" uid="uid://cr1q45swwrhjd" path="res://Logic/AI/Nodes/enemy_bt_tester.gd" id="11_1mjim"]
 [ext_resource type="Texture2D" uid="uid://dcxe34sq506o6" path="res://2D/Original/knight/knight-idle.png" id="11_net0g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_net0g"]
@@ -63,7 +61,8 @@ animations = [{
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 1
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 7
@@ -116,7 +115,8 @@ animations = [{
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 2
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 14
@@ -169,7 +169,8 @@ animations = [{
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 1
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 11
@@ -186,7 +187,8 @@ shader_parameter/flash_value = 0.0
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 1
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 11
@@ -203,7 +205,8 @@ shader_parameter/flash_value = 0.0
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 1
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 11
@@ -220,7 +223,8 @@ shader_parameter/flash_value = 0.0
 resource_local_to_scene = true
 script = ExtResource("8_xt5ad")
 move_range = 5
-attack_range = 1
+min_atk_range = 1
+max_atk_range = 1
 max_hp = 20
 hp = 20
 strn = 11
@@ -295,7 +299,6 @@ material = SubResource("ShaderMaterial_m0e5p")
 position = Vector2(176, 112)
 sprite_frames = SubResource("SpriteFrames_4xdir")
 frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
 stats = SubResource("Resource_5mg0h")
 
 [node name="Knight4" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
@@ -303,7 +306,6 @@ material = SubResource("ShaderMaterial_85gpj")
 position = Vector2(128, 112)
 sprite_frames = SubResource("SpriteFrames_4xdir")
 frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
 stats = SubResource("Resource_kxruc")
 
 [node name="Knight5" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
@@ -311,7 +313,6 @@ material = SubResource("ShaderMaterial_l77do")
 position = Vector2(144, 112)
 sprite_frames = SubResource("SpriteFrames_4xdir")
 frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
 stats = SubResource("Resource_qp5a2")
 
 [node name="Knight6" parent="TileManager/Units/Red" instance=ExtResource("5_and8k")]
@@ -319,7 +320,6 @@ material = SubResource("ShaderMaterial_0o8q3")
 position = Vector2(160, 112)
 sprite_frames = SubResource("SpriteFrames_4xdir")
 frame_progress = 0.0
-behavior_script = ExtResource("7_net0g")
 stats = SubResource("Resource_mtugg")
 
 [node name="Green" type="Node2D" parent="TileManager/Units"]
@@ -333,6 +333,5 @@ autoplay = "default"
 script = ExtResource("10_and8k")
 
 [node name="CPUPhase" type="Node" parent="."]
-script = ExtResource("11_1mjim")
 
 [node name="PlayerPhase" parent="." instance=ExtResource("9_5mg0h")]
