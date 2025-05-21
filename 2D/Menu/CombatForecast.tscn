@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://dax5jsnebdhp6"]
+
+[ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_ny0ru"]
+[ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="4_408xg"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6fbsj"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[node name="CombatForecast" type="CenterContainer"]
+z_index = 40
+z_as_relative = false
+texture_filter = 1
+offset_right = 160.0
+offset_bottom = 52.015
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_ny0ru")
+
+[node name="Container1" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container1"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_ny0ru")
+texture = ExtResource("4_408xg")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Container1"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container1/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextContainer" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="UnitName" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Person1"
+
+[node name="Space" type="Control" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HPCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "99"
+horizontal_alignment = 1
+visible_characters = -2
+visible_ratio = -1.0
+
+[node name="Slash" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "/"
+
+[node name="MaxHPCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "99"
+horizontal_alignment = 1
+
+[node name="StrengthContainer" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StrengthLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/StrengthContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Strength"
+
+[node name="StrengthCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/StrengthContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "99"
+horizontal_alignment = 2
+
+[node name="DefenseContainer" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DefenseLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/DefenseContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Defense"
+
+[node name="DefenseCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/DefenseContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "99"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6fbsj")
+
+[node name="HitChanceConatiner" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HitChanceLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceConatiner"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Chance to Hit"
+
+[node name="HitChanceCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceConatiner"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "99"
+horizontal_alignment = 2
+
+[node name="DamageContainer" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/DamageContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Damage"
+
+[node name="DamageCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/DamageContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "99"
+horizontal_alignment = 2

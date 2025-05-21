@@ -7,9 +7,9 @@ func state_enter():
 	# Maybe all buttons do the same thing, and your menu option just determines the set variable.
 	$WeaponSelectMenu.show()
 	var b1 = Button.new()
-	b1.text = "Button1"
+	b1.text = "Sword"
 	var b2 = Button.new()
-	b2.text = "Button2"
+	b2.text = "Wand"
 	b1.connect("pressed", on_any_button_pressed)
 	b2.connect("pressed", on_any_button_pressed)
 	$WeaponSelectMenu/VBoxContainer.add_child(b1)
