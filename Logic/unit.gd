@@ -4,6 +4,8 @@ extends AnimatedSprite2D
 enum Faction { Blue, Red, Green }
 var faction: Faction = Faction.Blue
 
+@export var behavior: BehaviorResource
+
 ## Move speed during pathfinding.
 @export var move_speed: float = 1.0
 

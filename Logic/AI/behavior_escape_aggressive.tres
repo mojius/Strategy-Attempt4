@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BehaviorResource" load_steps=3 format=3 uid="uid://dtrmtnmol2ldm"]
+
+[ext_resource type="Script" uid="uid://d30lys0j2wk4m" path="res://Logic/AI/goal_resource.gd" id="1_cty0i"]
+[ext_resource type="Script" uid="uid://bjwk3roi3djhs" path="res://Logic/AI/behavior_resource.gd" id="1_ghael"]
+
+[resource]
+script = ExtResource("1_ghael")
+description = "Escape "
+goals = Array[ExtResource("1_cty0i")]([])
+metadata/_custom_type_script = "uid://bjwk3roi3djhs"
