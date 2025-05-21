@@ -26,12 +26,12 @@ func state_exit():
 func state_update():
 	pass
 
-func interact(aggressor: CombatPanel, target: CombatPanel):
+func interact(attacker: CombatPanel, target: CombatPanel):
 
-	await aggressor.volley(target)
+	await attacker.volley(target)
 	if target.unit.stats.hp > 0: 
-		await target.volley(aggressor)
+		await target.volley(attacker)
 	await get_tree().create_timer(0.3).timeout
 
-	if aggressor.unit: aggressor.unit.exhausted = true
+	if attacker.unit: attacker.unit.exhausted = true
 	transitioned.emit(self, "StateMapLook")

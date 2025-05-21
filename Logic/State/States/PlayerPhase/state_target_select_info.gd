@@ -26,9 +26,9 @@ func state_exit():
 
 func state_update():
 	if Input.is_action_just_pressed("Cancel"):
-		transitioned.emit(self, "StateWeaponSelect")
+		transitioned.emit(self, "StatePostMoveMenu")
 
 func _on_target_button_pressed(target: Unit):
 	shared_dict["Target"] = target
-	transitioned.emit(self, "StateUnitsCombat")
+	transitioned.emit(self, "StateCombatForecasting")
 	

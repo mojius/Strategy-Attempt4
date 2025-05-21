@@ -44,7 +44,7 @@ func state_update() -> void:
 	
 
 func _on_attack_pressed() -> void:
-	transitioned.emit(self, "StateWeaponSelect")
+	transitioned.emit(self, "StateTargetSelectInfo")
 
 func _on_wait_pressed() -> void:
 	unit.exhausted = true

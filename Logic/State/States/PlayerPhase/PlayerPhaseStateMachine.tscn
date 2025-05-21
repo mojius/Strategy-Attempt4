@@ -71,8 +71,8 @@ script = ExtResource("8_6jofp")
 [node name="UnitsCombatMenu" parent="StateUnitsCombat" instance=ExtResource("15_hm8km")]
 visible = false
 
-[node name="StateCombatForecast" type="Node" parent="."]
+[node name="StateCombatForecasting" type="Node" parent="."]
 script = ExtResource("15_fby7t")
 
-[node name="CombatForecastMenu" parent="StateCombatForecast" instance=ExtResource("16_2i1to")]
+[node name="CombatForecastMenu" parent="StateCombatForecasting" instance=ExtResource("16_2i1to")]
 visible = false

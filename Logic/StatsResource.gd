@@ -12,6 +12,7 @@ extends Resource
         
 @export var strn: int = 10
 @export var def: int = 6
+@export var hit_chance = 70
 
 
 func _init() -> void:

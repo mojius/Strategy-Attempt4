@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dax5jsnebdhp6"]
+[gd_scene load_steps=5 format=3 uid="uid://dax5jsnebdhp6"]
 
 [ext_resource type="Theme" uid="uid://b8l8dxk6ncn7s" path="res://2D/Font & Style/default-ui.tres" id="1_ny0ru"]
+[ext_resource type="Script" uid="uid://bq4rfw2kts4jy" path="res://2D/Menu/combat_forecast.gd" id="2_4gavd"]
 [ext_resource type="Texture2D" uid="uid://jkdxtognvfm3" path="res://2D/Original/menu.png" id="4_408xg"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_6fbsj"]
@@ -16,6 +17,7 @@ offset_bottom = 52.015
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("1_ny0ru")
+script = ExtResource("2_4gavd")
 
 [node name="Container1" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -48,6 +50,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="UnitName" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Person1"
@@ -57,6 +60,7 @@ custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="HPCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -71,6 +75,7 @@ size_flags_horizontal = 0
 text = "/"
 
 [node name="MaxHPCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/TextContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -86,6 +91,7 @@ size_flags_horizontal = 0
 text = "Strength"
 
 [node name="StrengthCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/StrengthContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -101,6 +107,7 @@ size_flags_horizontal = 0
 text = "Defense"
 
 [node name="DefenseCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/DefenseContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -111,15 +118,16 @@ horizontal_alignment = 2
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_6fbsj")
 
-[node name="HitChanceConatiner" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
+[node name="HitChanceContainer" type="HBoxContainer" parent="Container1/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HitChanceLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceConatiner"]
+[node name="HitChanceLabel" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Chance to Hit"
 
-[node name="HitChanceCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceConatiner"]
+[node name="HitChanceCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/HitChanceContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -135,6 +143,7 @@ size_flags_horizontal = 0
 text = "Damage"
 
 [node name="DamageCounter" type="Label" parent="Container1/MarginContainer/VBoxContainer/DamageContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 3
