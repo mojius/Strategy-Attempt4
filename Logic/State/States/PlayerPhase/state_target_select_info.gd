@@ -30,5 +30,5 @@ func state_update():
 
 func _on_target_button_pressed(target: Unit):
 	shared_dict["Target"] = target
-	transitioned.emit(self, "StateUnitsAttackingSupporting")
+	transitioned.emit(self, "StateUnitsCombat")
 	

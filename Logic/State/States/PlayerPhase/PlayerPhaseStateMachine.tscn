@@ -11,15 +11,27 @@
 [ext_resource type="Script" uid="uid://cuyevbbfkmd2k" path="res://Logic/State/States/PlayerPhase/state_unit_info.gd" id="6_xy5og"]
 [ext_resource type="PackedScene" uid="uid://cjlc2ebly73av" path="res://2D/Menu/PostMoveMenu.tscn" id="7_3velt"]
 [ext_resource type="Script" uid="uid://bjbj0hs42bcpm" path="res://Logic/State/States/PlayerPhase/state_units_combat.gd" id="8_6jofp"]
-[ext_resource type="Script" uid="uid://bniov0yapqfq4" path="res://Logic/State/States/PlayerPhase/state_weapon_select.gd" id="9_hm8km"]
-[ext_resource type="PackedScene" uid="uid://dbdgm3yqaobu6" path="res://2D/Menu/WeaponSelectMenu.tscn" id="11_s66c3"]
 [ext_resource type="PackedScene" uid="uid://dbrhlb1wiea6d" path="res://2D/Menu/TargetButton.tscn" id="13_1wyek"]
 [ext_resource type="PackedScene" uid="uid://d22anyecuw6h2" path="res://2D/Menu/TargetSelectInfoMenu.tscn" id="13_6jofp"]
+[ext_resource type="Script" uid="uid://0g6nx3jdcrao" path="res://Logic/State/States/PlayerPhase/state_combat_forecasting.gd" id="15_fby7t"]
 [ext_resource type="PackedScene" uid="uid://cfw7fwj1fyqqs" path="res://2D/Menu/CombatMenu.tscn" id="15_hm8km"]
+[ext_resource type="PackedScene" uid="uid://djqgxpayawpof" path="res://2D/Menu/CombatForecastMenu.tscn" id="16_2i1to"]
 
 [node name="PlayerPhaseStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_17w06")
 initial_state = NodePath("StateMapLook")
+
+[node name="StatePostMoveMenu" type="Node" parent="."]
+script = ExtResource("4_0wxgx")
+metadata/_custom_type_script = "uid://drei463s3v4jo"
+
+[node name="PostMoveMenu" parent="StatePostMoveMenu" instance=ExtResource("7_3velt")]
+visible = false
+offset_left = 80.0
+offset_top = 59.0
+offset_right = 79.92
+offset_bottom = 58.864
+script = null
 
 [node name="StateMapLook" type="Node" parent="."]
 script = ExtResource("2_hm2cc")
@@ -36,29 +48,6 @@ metadata/_custom_type_script = "uid://ctax0sl2vj3fm"
 [node name="StateUnitMoving" type="Node" parent="."]
 script = ExtResource("6_s66c3")
 metadata/_custom_type_script = "uid://cuyevbbfkmd2k"
-
-[node name="StatePostMoveMenu" type="Node" parent="."]
-script = ExtResource("4_0wxgx")
-metadata/_custom_type_script = "uid://drei463s3v4jo"
-
-[node name="PostMoveMenu" parent="StatePostMoveMenu" instance=ExtResource("7_3velt")]
-visible = false
-offset_left = 80.0
-offset_top = 59.0
-offset_right = 79.92
-offset_bottom = 58.864
-script = null
-
-[node name="StateWeaponSelect" type="Node" parent="."]
-script = ExtResource("9_hm8km")
-metadata/_custom_type_script = "uid://bniov0yapqfq4"
-
-[node name="WeaponSelectMenu" parent="StateWeaponSelect" instance=ExtResource("11_s66c3")]
-visible = false
-offset_left = 79.0
-offset_top = 59.0
-offset_right = 186.0
-offset_bottom = 99.0
 
 [node name="StateTargetSelectInfo" type="Node" parent="."]
 script = ExtResource("5_3velt")
@@ -80,4 +69,10 @@ metadata/_custom_type_script = "uid://cuyevbbfkmd2k"
 script = ExtResource("8_6jofp")
 
 [node name="UnitsCombatMenu" parent="StateUnitsCombat" instance=ExtResource("15_hm8km")]
+visible = false
+
+[node name="StateCombatForecast" type="Node" parent="."]
+script = ExtResource("15_fby7t")
+
+[node name="CombatForecastMenu" parent="StateCombatForecast" instance=ExtResource("16_2i1to")]
 visible = false

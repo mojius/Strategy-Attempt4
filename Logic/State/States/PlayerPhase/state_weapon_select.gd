@@ -5,7 +5,6 @@ extends State
 func state_enter():
 	# Show the menu, hook up the buttons. 
 	# Maybe all buttons do the same thing, and your menu option just determines the set variable.
-	$WeaponSelectMenu.show()
 	var b1 = Button.new()
 	b1.text = "Sword"
 	var b2 = Button.new()
